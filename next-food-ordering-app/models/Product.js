@@ -4,20 +4,20 @@ const ProductSchema = new mongoose.Schema(
 		title: {
 			type: String,
 			required: true,
-			maxlength: 60,
+			maxlength: 200,
 		},
 		title_ar: {
 			type: String,
 			required: true,
-			maxlength: 60,
+			maxlength: 200,
 		},
 		desc: {
 			type: String,
-			maxlength: 200,
+			maxlength: 600,
 		},
 		desc_ar: {
 			type: String,
-			maxlength: 200,
+			maxlength: 600,
 		},
 		img: {
 			type: String,
