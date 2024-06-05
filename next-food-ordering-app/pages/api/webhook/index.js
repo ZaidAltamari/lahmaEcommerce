@@ -1,11 +1,9 @@
 // import Stripe from 'stripe';
 // import axios from 'axios';
 // import { buffer } from 'micro';
-
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 // 	apiVersion: '2023-08-16',
 // });
-
 // async function updateOrder(session, res) {
 // 	const orderId = session.metadata.order_id;
 // 	const response = await axios.put(
@@ -20,7 +18,6 @@
 // 		res.status(500).json({ received: false, err: response.data });
 // 	}
 // }
-
 // export default async function handler(req, res) {
 // 	if (req.method === 'POST') {
 // 		let event;
@@ -50,7 +47,6 @@
 // 		res.status(405).end('Method Not Allowed');
 // 	}
 // }
-
 // export const config = {
 // 	api: {
 // 		bodyParser: false,

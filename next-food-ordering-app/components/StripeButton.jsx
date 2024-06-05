@@ -5,11 +5,9 @@ import OrderDetail from './OrderDetail';
 import Swal from 'sweetalert2';
 import useTranslation from 'next-translate/useTranslation';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
-
 export const CheckoutRedirectButton = ({ children, ...props }) => {
 	const [showOrderDetail, setShowOrderDetail] = useState(false);
 	const { t, lang } = useTranslation('common');
-
 	const handleCheckout = async (data) => {
 		const stripe = await stripePromise;
 		const orderData = {
@@ -22,7 +20,6 @@ export const CheckoutRedirectButton = ({ children, ...props }) => {
 			deviceId: localStorage.getItem('deviceId'),
 			shippingCost: data.shippingCost,
 		};
-
 		const response = await fetch('/api/stripe/checkout', {
 			method: 'POST',
 			headers: {
@@ -40,13 +37,10 @@ export const CheckoutRedirectButton = ({ children, ...props }) => {
 				deviceId: orderData.deviceId,
 			}),
 		});
-
 		const session = await response.json();
-
 		const result = await stripe.redirectToCheckout({
 			sessionId: session.sessionId,
 		});
-
 		if (result.error) {
 			Swal.fire({
 				position: 'center',
@@ -58,7 +52,6 @@ export const CheckoutRedirectButton = ({ children, ...props }) => {
 				timerProgressBar: true,
 			});
 		}
-
 		return (
 			<form onSubmit={(e) => e.preventDefault()}>
 				{showOrderDetail && (

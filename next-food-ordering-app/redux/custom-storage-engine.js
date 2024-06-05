@@ -1,5 +1,4 @@
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
-
 const createNoopStorage = () => {
 	return {
 		getItem(_key) {
@@ -13,10 +12,8 @@ const createNoopStorage = () => {
 		},
 	};
 };
-
 const storage =
 	typeof window !== 'undefined'
 		? createWebStorage('local')
 		: createNoopStorage();
-
 export default storage;

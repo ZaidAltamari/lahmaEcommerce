@@ -24,43 +24,40 @@ import {
 	differenceInMinutes,
 	differenceInDays,
 } from 'date-fns';
-
 const status = ['preparing', 'on the way', 'delivered'];
 const options = [
 	{ value: 'Best Sellers', label: 'best sellers' },
-	{ value: 'Our Mix Grill', label: 'Meal for four' },
-	{ value: 'Meal for one', label: 'Meal for one' },
-	{ value: 'Meal for two', label: 'Meal for two' },
-	{ value: 'Sandwiches', label: 'Sandwiches' },
-	{ value: 'Wraps', label: 'Wraps' },
-	{ value: 'Appetizer', label: 'Appetizer' },
-	{ value: 'Pans', label: 'Pans' },
-	{ value: 'Salad', label: 'Salad' },
-	{ value: 'Australian Lamb', label: 'Australian Lamb' },
-	{ value: 'Local Lamb', label: 'Local Lamb' },
-	{ value: 'Syrian Lamb', label: 'Syrian Lamb' },
-	{ value: 'Mutton', label: 'Mutton' },
-	{ value: 'Australian Beef', label: 'Australian Beef' },
-	{ value: 'Local Beef', label: 'Local Beef' },
-	{ value: 'Fresh Chicken', label: 'Fresh Chicken' },
-	{ value: 'Ready To Cook', label: 'Ready To Cook' },
-	{ value: 'Ready To Grill', label: 'Ready To Grill' },
-	{ value: 'Frozen Item', label: 'Frozen Item' },
-	{ value: 'Soft Drinks', label: 'Soft Drinks' },
+	{ value: 'Home & Garden', label: 'Home & Garden' },
+	{ value: 'Kitchen & Dining', label: 'Kitchen & Dining' },
+	{ value: 'Kitchen Tools & Utensils', label: 'Kitchen Tools & Utensils' },
+	{ value: 'Kitchen Slicers', label: 'Kitchen Slicers' },
+	{ value: 'Kitchen Appliances', label: 'Kitchen Appliances' },
+	{ value: 'Decor', label: 'Decor' },
+	{ value: 'Electronics', label: 'Electronics' },
+	{ value: 'Hardware', label: 'Hardware' },
+	{ value: 'Tools', label: 'Tools' },
+	{ value: 'Apparel & Accessories', label: 'Apparel & Accessories' },
+	{ value: 'Office Supplies', label: 'Office Supplies' },
+	{ value: 'Audio', label: 'Audio' },
+	{ value: 'Jewelry', label: 'Jewelry' },
+	{ value: 'Household Supplies', label: 'Household Supplies' },
+	{ value: 'Storage & Organization', label: 'Storage & Organization' },
+	{ value: 'Watches', label: 'Watches' },
+	{ value: 'Grinders', label: 'Grinders' },
+	{ value: 'Headphones & Headsets', label: 'Headphones & Headsets' },
+	{ value: 'Headphones', label: 'Headphones' },
 ];
-
 const messages = [
 	'Your order is being prepared',
 	'Your order is on the way',
 	'Your order has been delivered',
 ];
-
 const ProductsTab = ({ products, setProductList }) => {
 	const [selectedCategory, setSelectedCategory] = useState(options[0].value);
 	const [product, setProduct] = useState(products);
 	const [editingId, setEditingId] = useState(null);
 	const [close, setClose] = useState(true);
-
+	const { t, lang } = useTranslation('common');
 	const handleDelete = useCallback(
 		async (id) => {
 			try {
@@ -73,13 +70,12 @@ const ProductsTab = ({ products, setProductList }) => {
 					cancelButtonColor: '#d33',
 					confirmButtonText: 'Yes, delete it!',
 				});
-
 				if (result.isConfirmed) {
 					const res = await axios.delete(
 						`${process.env.API_URL}/api/products/` + id,
 					);
 					if (res.status >= 200 && res.status < 300) {
-						const newProduct = product.filter(
+						const newProduct = products.filter(
 							(product) => product._id !== id,
 						);
 						setProductList(newProduct);
@@ -104,42 +100,118 @@ const ProductsTab = ({ products, setProductList }) => {
 		},
 		[product, setProductList, setClose],
 	);
-
-	const handleEdit = useCallback((productId) => {
-		setEditingId(productId);
-	}, []);
-
-	const handleUpdate = useCallback(
-		async (updatedProduct) => {
-			try {
-				const res = await axios.put(
-					`${process.env.API_URL}/api/products/` + updatedProduct._id,
-					updatedProduct,
-				);
-				setProductList(
-					product.map((product) =>
-						product._id === res.data._id ? res.data : product,
-					),
-				);
-				setEditingId(null);
-			} catch (err) {
-				Swal.fire({
-					position: 'center',
-					icon: 'error',
-					title: 'Update Failed',
-					showConfirmButton: false,
-					timer: 3000,
-					timerProgressBar: true,
-				});
-			}
+	// const handleEdit = useCallback((productId) => {
+	// 	setEditingId(productId);
+	// }, []);
+	const handleEdit = useCallback(
+		(productId) => {
+			console.log(`🚀  product =>`, product);
+			const productToEdit = products.find((p) => p._id === productId);
+			setEditingId(productId);
+			setProduct({
+				_id: productToEdit._id,
+				title: productToEdit.title,
+				title_ar: productToEdit.title_ar,
+				desc: productToEdit.desc,
+				desc_ar: productToEdit.desc_ar,
+				img: productToEdit.img,
+				prices: productToEdit.prices,
+				category: productToEdit.category,
+				sizes: productToEdit.sizes,
+				colors: productToEdit.colors,
+			});
 		},
-		[product, setProductList],
+		[product],
 	);
+	// const handleUpdate = useCallback(
+	// 	async (updatedProduct) => {
+	// 		try {
+	// 			const res = await axios.put(
+	// 				`${process.env.API_URL}/api/products/` + updatedProduct._id,
+	// 				updatedProduct,
+	// 			);
+	// 			setProductList(
+	// 				product.map((product) =>
+	// 					product._id === res.data._id ? res.data : product,
+	// 				),
+	// 			);
+	// 			setEditingId(null);
+	// 		} catch (err) {
+	// 			Swal.fire({
+	// 				position: 'center',
+	// 				icon: 'error',
+	// 				title: 'Update Failed',
+	// 				showConfirmButton: false,
+	// 				timer: 3000,
+	// 				timerProgressBar: true,
+	// 			});
+	// 		}
+	// 	},
+	// 	[product, setProductList],
+	// );
+	const showSuccessMessage = useCallback((message) => {
+		Swal.fire({
+			position: 'center',
+			icon: 'success',
+			title: message,
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+		});
+	}, []);
+	const showErrorMessage = useCallback((message) => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: message,
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+		});
+	}, []);
+	const uploadFile = async (file) => {
+		const data = new FormData();
+		data.append('file', file);
+		const uploadRes = await axios.post('/api/upload', data);
+		return uploadRes.data.data;
+	};
+	const handleUpdate = useCallback(async () => {
+		try {
+			let url;
+			if (product.file) {
+				url = await uploadFile(product.file);
+			} else {
+				url = product.img;
+			}
+			const updatedProduct = {
+				_id: product._id,
+				title: product.title,
+				title_ar: product.title_ar,
+				desc: product.desc,
+				desc_ar: product.desc_ar,
+				prices: product.prices,
+				img: url,
+				category: product.category,
+				sizes: product.sizes,
+				colors: product.colors,
+			};
+			await axios.put(
+				`${process.env.API_URL}/api/products/` + product._id,
+				updatedProduct,
+			);
+			setClose(true);
+			showSuccessMessage(
+				lang === 'en' ? 'Product Updated' : 'تم تحديث المنتج',
+			);
+		} catch (err) {
+			showErrorMessage(lang === 'en' ? 'Something went wrong' : 'حدث خطأ');
+		}
+	}, [product, setClose, showErrorMessage, showSuccessMessage, lang]);
 	return (
 		<div className={styles.container}>
 			{editingId ? (
 				<Add
-					productToEdit={product.find((p) => p._id === editingId)}
+					productToEdit={products.find((p) => p._id === editingId)}
 					onUpdate={handleUpdate}
 					onCancel={() => setEditingId(null)}
 					setClose={setClose}
@@ -157,7 +229,6 @@ const ProductsTab = ({ products, setProductList }) => {
 								<tr className={styles.trTitle}>
 									<th>Image</th>
 									<th>Title</th>
-									<th>Extras</th>
 									<th>Categories</th>
 									<th>Prices</th>
 									<th>Created at</th>
@@ -165,7 +236,7 @@ const ProductsTab = ({ products, setProductList }) => {
 									<th>Action</th>
 								</tr>
 							</tbody>
-							{product
+							{products
 								.filter((product) =>
 									product.category.includes(selectedCategory),
 								)
@@ -197,7 +268,6 @@ const ProductsTab = ({ products, setProductList }) => {
 														new Date(),
 														new Date(product.createdAt),
 													);
-
 													if (diffInDays >= 1) {
 														return `${diffInDays} day ago`;
 													} else {
@@ -205,7 +275,6 @@ const ProductsTab = ({ products, setProductList }) => {
 															new Date(),
 															new Date(product.createdAt),
 														);
-
 														if (diffInHours < 1) {
 															const diffInMinutes =
 																differenceInMinutes(
@@ -230,7 +299,6 @@ const ProductsTab = ({ products, setProductList }) => {
 														new Date(),
 														new Date(product.updatedAt),
 													);
-
 													if (diffInDays >= 1) {
 														return `${diffInDays} day ago`;
 													} else {
@@ -238,7 +306,6 @@ const ProductsTab = ({ products, setProductList }) => {
 															new Date(),
 															new Date(product.updatedAt),
 														);
-
 														if (diffInHours < 1) {
 															const diffInMinutes =
 																differenceInMinutes(
@@ -281,7 +348,6 @@ const ProductsTab = ({ products, setProductList }) => {
 		</div>
 	);
 };
-
 const TodaysOrdersTab = ({
 	orderList,
 	handleSort,
@@ -290,7 +356,6 @@ const TodaysOrdersTab = ({
 }) => {
 	const [sortValue, setSortValue] = useState('newest');
 	const [sortOrder, setSortOrder] = useState();
-
 	return (
 		<div className={styles.item}>
 			<h1 className={styles.title}>Filter</h1>
@@ -374,7 +439,6 @@ const TodaysOrdersTab = ({
 										new Date(),
 										new Date(order.createdAt),
 									);
-
 									if (diffInDays >= 1) {
 										return `${diffInDays} day ago`;
 									} else {
@@ -382,7 +446,6 @@ const TodaysOrdersTab = ({
 											new Date(),
 											new Date(order.createdAt),
 										);
-
 										if (diffInHours < 1) {
 											const diffInMinutes = differenceInMinutes(
 												new Date(),
@@ -424,7 +487,6 @@ const TodaysOrdersTab = ({
 		</div>
 	);
 };
-
 const AllOrdersTab = ({
 	orderList,
 	handleSort,
@@ -434,7 +496,6 @@ const AllOrdersTab = ({
 	const [sortValue, setSortValue] = useState('newest');
 	const [sortOrder, setSortOrder] = useState('asc');
 	const [orderLimit, setOrderLimit] = useState(100);
-
 	return (
 		<div className={styles.item}>
 			<h1 className={styles.title}>Filter</h1>
@@ -518,7 +579,6 @@ const AllOrdersTab = ({
 										new Date(),
 										new Date(order.createdAt),
 									);
-
 									if (diffInDays >= 1) {
 										return `${diffInDays} day ago`;
 									} else {
@@ -526,7 +586,6 @@ const AllOrdersTab = ({
 											new Date(),
 											new Date(order.createdAt),
 										);
-
 										if (diffInHours < 1) {
 											const diffInMinutes = differenceInMinutes(
 												new Date(),
@@ -577,7 +636,6 @@ const AllOrdersTab = ({
 		</div>
 	);
 };
-
 const Index = ({ initialOrders, products }) => {
 	const [orders, setOrders] = useState(initialOrders);
 	const [orderList, setOrderList] = useState(orders);
@@ -588,18 +646,15 @@ const Index = ({ initialOrders, products }) => {
 	const [sortedAndFilteredTodaysOrders, setSortedAndFilteredTodaysOrders] =
 		useState([]);
 	const { t, lang } = useTranslation('common');
-
 	useEffect(() => {
 		const intervalId = setInterval(async () => {
 			const orderRes = await axios.get(`${process.env.API_URL}/api/orders`);
 			setOrders(orderRes.data);
 		}, 5000);
-
 		const currentDate = new Date();
 		const currentDay = currentDate.getDate();
 		const currentMonth = currentDate.getMonth() + 1;
 		const currentYear = currentDate.getFullYear();
-
 		const filteredOrders = orderList.filter((order) => {
 			const orderDate = new Date(order.createdAt);
 			return (
@@ -608,26 +663,20 @@ const Index = ({ initialOrders, products }) => {
 				orderDate.getFullYear() === currentYear
 			);
 		});
-
 		setTodaysOrders(filteredOrders);
-
 		return () => clearInterval(intervalId);
 	}, [orderList]);
-
 	useEffect(() => {
 		setSortedAndFilteredTodaysOrders(todaysOrders);
 	}, [todaysOrders]);
-
 	useEffect(() => {
 		const interval = setInterval(() => {
 			axios.get(`${process.env.API_URL}/api/products`).then((res) => {
 				setProductList(res.data);
 			});
 		}, 5000);
-
 		return () => clearInterval(interval);
 	}, []);
-
 	let theme = useTheme();
 	theme = createTheme(theme, {
 		components: {
@@ -642,55 +691,9 @@ const Index = ({ initialOrders, products }) => {
 			},
 		},
 	});
-
 	const handleChange = (e, newValue) => {
 		setValue(newValue);
 	};
-
-	// const handleStatus = useCallback(
-	// 	async (id) => {
-	// 		const item = orderList.filter((order) => order._id === id)[0];
-	// 		const currentStatus = item.status;
-
-	// 		try {
-	// 			const res = await axios.put(
-	// 				`${process.env.API_URL}/api/orders/` + id,
-	// 				{
-	// 					status: currentStatus + 1,
-	// 				},
-	// 			);
-	// 			setOrderList([
-	// 				res.data,
-	// 				...orderList.filter((order) => order._id !== id),
-	// 			]);
-	// 			// const phoneNumber = item.phone_number;
-	// 			// const message = `Your order status has been updated to ${
-	// 			// 	status[currentStatus + 1]
-	// 			// }`;
-	// 			// await axios.post('/api/whatsappBot', { phoneNumber, message });
-
-	// 			client.messages
-	// 				.create({
-	// 					body: currentStatus,
-	// 					from: 'whatsapp:+14155238886',
-	// 					to: `whatsapp:${item.phone_number}`,
-	// 				})
-	// 				.then((message) => console.log(message.sid))
-	// 				.done();
-	// 		} catch (err) {
-	// 			Swal.fire({
-	// 				position: 'center',
-	// 				icon: 'error',
-	// 				title: 'Status Change Failed',
-	// 				showConfirmButton: false,
-	// 				timer: 3000,
-	// 				timerProgressBar: true,
-	// 			});
-	// 		}
-	// 	},
-	// 	[orderList],
-	// );
-
 	const handleStatus = useCallback(
 		async (id) => {
 			const item = orderList.filter((order) => order._id === id)[0];
@@ -723,7 +726,6 @@ const Index = ({ initialOrders, products }) => {
 		},
 		[orderList],
 	);
-
 	const handleSort = (sortValue, sortOrder) => {
 		let sortedList;
 		switch (sortValue) {
@@ -779,7 +781,6 @@ const Index = ({ initialOrders, products }) => {
 		setOrderList(sortedList);
 		setSortedAndFilteredTodaysOrders(sortedList);
 	};
-
 	const handleFilter = (key, value) => {
 		const filteredOrders = originalOrderList.current.filter((order) => {
 			if (order[key] && typeof order[key] === 'string') {
@@ -790,7 +791,6 @@ const Index = ({ initialOrders, products }) => {
 		setOrderList(filteredOrders);
 		setSortedAndFilteredTodaysOrders(filteredOrders);
 	};
-
 	return (
 		<>
 			<Head>
@@ -842,15 +842,12 @@ const Index = ({ initialOrders, products }) => {
 		</>
 	);
 };
-
 export const getServerSideProps = async (ctx) => {
 	const myCookie = ctx.req?.cookies || '';
 	let admin = false;
-
 	if (myCookie.token === process.env.TOKEN) {
 		admin = true;
 	}
-
 	if (myCookie.token !== process.env.TOKEN) {
 		return {
 			redirect: {
@@ -859,14 +856,11 @@ export const getServerSideProps = async (ctx) => {
 			},
 		};
 	}
-
 	const productRes = await axios.get(`${process.env.API_URL}/api/products`);
 	const orderRes = await axios.get(`${process.env.API_URL}/api/orders`);
-
 	orderRes.data.sort((a, b) => {
 		return new Date(b.createdAt) - new Date(a.createdAt);
 	});
-
 	return {
 		props: {
 			initialOrders: orderRes.data,
@@ -875,5 +869,4 @@ export const getServerSideProps = async (ctx) => {
 		},
 	};
 };
-
 export default Index;

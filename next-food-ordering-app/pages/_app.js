@@ -8,15 +8,12 @@ import { persistStore } from 'redux-persist';
 import { v4 as uuidv4 } from 'uuid';
 import Head from 'next/head';
 import { useEffect } from 'react';
-
 const persistor = persistStore(store);
-
 function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		const deviceId = localStorage.getItem('deviceId') || uuidv4();
 		localStorage.setItem('deviceId', deviceId);
 	}, []);
-
 	return (
 		<>
 			<Head>
@@ -28,8 +25,7 @@ function MyApp({ Component, pageProps }) {
 			<Provider store={store}>
 				<PersistGate
 					loading={null}
-					persistor={persistor}
-				>
+					persistor={persistor}>
 					<Layout {...pageProps}>
 						<NextNProgress color='#da0f00' />
 						<Component {...pageProps} />
@@ -39,5 +35,4 @@ function MyApp({ Component, pageProps }) {
 		</>
 	);
 }
-
 export default MyApp;

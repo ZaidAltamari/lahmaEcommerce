@@ -4,26 +4,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
 import { toArabic } from 'arabic-digits';
-
 const ProductCard = ({ product }) => {
 	const [imgSrc, setImgSrc] = useState(
 		`${process.env.API_URL_MEDIA}${product.img}`,
 	);
 	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
 	const { t, lang } = useTranslation('common');
-
 	const handleError = () => {
 		setImgSrc(fallbackImg);
 	};
-
 	return (
 		<div className={styles.container}>
 			<Link
 				href={`/product/${product._id}`}
 				passHref
 				aria-label='link to product'
-				style={{ textAlign: 'center' }}
-			>
+				style={{ textAlign: 'center' }}>
 				<Image
 					className={styles.productsImage}
 					src={imgSrc}
@@ -51,5 +47,4 @@ const ProductCard = ({ product }) => {
 		</div>
 	);
 };
-
 export default ProductCard;

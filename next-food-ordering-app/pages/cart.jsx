@@ -12,7 +12,6 @@ import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import { toArabic } from 'arabic-digits';
 import { IoMdClose } from 'react-icons/io';
-
 const Cart = () => {
 	const cart = useSelector((state) => state.cart);
 	const [open, setOpen] = useState(false);
@@ -20,16 +19,13 @@ const Cart = () => {
 	const dispatch = useDispatch();
 	const router = useRouter();
 	const { t, lang } = useTranslation('common');
-
 	const [imgSrcs, setImgSrcs] = useState(
 		cart.products.reduce((obj, product) => {
 			obj[product._id] = `${process.env.API_URL_MEDIA}${product.img}`;
 			return obj;
 		}, {}),
 	);
-
 	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
-
 	const handleError = (id) => {
 		setImgSrcs((prev) => ({ ...prev, [id]: fallbackImg }));
 	};
@@ -100,7 +96,6 @@ const Cart = () => {
 			});
 		}
 	};
-
 	const handleRemoveFromCart = (product) => {
 		Swal.fire({
 			title: lang === 'en' ? 'Are you sure?' : 'هل انت متأكد؟',
@@ -132,7 +127,6 @@ const Cart = () => {
 			}
 		});
 	};
-
 	return (
 		<>
 			<Head>
@@ -160,8 +154,7 @@ const Cart = () => {
 									key={
 										Date.now().toString(36) +
 										Math.random().toString(36).substr(2)
-									}
-								>
+									}>
 									<td>
 										<div className={styles.imgContainer}>
 											<Image
@@ -223,8 +216,7 @@ const Cart = () => {
 									<td>
 										<button
 											className={styles.removeIcon}
-											onClick={() => handleRemoveFromCart(product)}
-										>
+											onClick={() => handleRemoveFromCart(product)}>
 											<IoMdClose size={23} />
 										</button>
 									</td>
@@ -262,16 +254,14 @@ const Cart = () => {
 												timerProgressBar: true,
 											});
 										setCash(true);
-									}}
-								>
+									}}>
 									{t('CASH ON DELIVERY')}
 								</button>
 								<CheckoutRedirectButton
 									disabled={cart.total === 0}
 									amount={cart.total * 100}
 									currency='aed'
-									cart={cart}
-								>
+									cart={cart}>
 									{t('PAY WITH CREDIT/DEBIT CARD')}
 								</CheckoutRedirectButton>
 							</div>
@@ -292,8 +282,7 @@ const Cart = () => {
 										});
 									setOpen(true);
 								}}
-								className={styles.button}
-							>
+								className={styles.button}>
 								{t('CHECKOUT NOW!')}
 							</button>
 						)}
@@ -311,25 +300,20 @@ const Cart = () => {
 		</>
 	);
 };
-
 export const getServerSideProps = async (ctx) => {
 	const myCookie = ctx.req?.cookies || '';
 	let admin = false;
-
 	if (myCookie.token === process.env.TOKEN) {
 		admin = true;
 	}
-
 	ctx.res.setHeader(
 		'Cache-Control',
 		'public, s-maxage=30, stale-while-revalidate=59',
 	);
-
 	return {
 		props: {
 			admin,
 		},
 	};
 };
-
 export default Cart;

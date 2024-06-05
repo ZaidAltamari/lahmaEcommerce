@@ -1,5 +1,4 @@
 // import cookie from 'cookie';
-
 // const handler = (req, res) => {
 // 	if (req.method === 'POST') {
 // 		const { username, password } = req.body;
@@ -21,11 +20,8 @@
 // 		}
 // 	}
 // };
-
 // export default handler;
-
 import cookie from 'cookie';
-
 const handler = (req, res) => {
 	if (req.method === 'POST') {
 		const { username, password } = req.body;
@@ -33,7 +29,6 @@ const handler = (req, res) => {
 		const user = admins.find(
 			(admin) => admin.username === username && admin.password === password,
 		);
-
 		if (user) {
 			res.setHeader(
 				'Set-Cookie',
@@ -53,5 +48,4 @@ const handler = (req, res) => {
 		}
 	}
 };
-
 export default handler;

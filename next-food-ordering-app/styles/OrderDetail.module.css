@@ -13,7 +13,6 @@
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 }
-
 .wrapper {
 	width: 500px;
 	background-color: white;
@@ -25,37 +24,30 @@
 	justify-content: center;
 	border: 1px solid rgba(0, 0, 0, 0.6);
 }
-
 @media screen and (max-width: 620px) {
 	.wrapper {
 		width: 95vw;
 		position: fixed;
 	}
-
 	.container {
 		position: fixed;
 	}
 }
-
 .title {
 	font-weight: 300;
 }
-
 .item {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	margin-bottom: 15px;
 }
-
 .label {
 	margin-bottom: 10px;
 }
-
 .input {
 	height: 40px;
 }
-
 .button {
 	border: none;
 	background-color: teal;
@@ -66,16 +58,13 @@
 	border-radius: 10px;
 	cursor: pointer;
 }
-
 .button:hover {
 	background-color: rgb(0, 128, 0);
 }
-
 .button:disabled {
 	background-color: rgba(0, 0, 0, 0.3);
 	cursor: not-allowed;
 }
-
 .closeButton {
 	position: relative;
 	top: 20px;
@@ -91,14 +80,12 @@
 	cursor: pointer;
 	z-index: 100000;
 }
-
 @media screen and (max-width: 620px) {
 	.closeButton {
 		right: calc(100vw - 100px);
 		top: -249px;
 	}
 }
-
 .closeButton:hover {
 	background-color: red;
 }

@@ -4,17 +4,14 @@ import axios from 'axios';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import { toArabic } from 'arabic-digits';
-
 const Order = ({ order }) => {
 	const status = order.status;
 	const { t, lang } = useTranslation('common');
-
 	const statusClass = (index) => {
 		if (index - status < 1) return styles.done;
 		if (index - status === 1) return styles.inProgress;
 		if (index - status > 1) return styles.undone;
 	};
-
 	return (
 		<>
 			<Head>
@@ -144,8 +141,7 @@ const Order = ({ order }) => {
 						</div>
 						<button
 							disabled
-							className={styles.button}
-						>
+							className={styles.button}>
 							{t('PAID')}
 						</button>
 					</div>
@@ -160,21 +156,17 @@ const Order = ({ order }) => {
 		</>
 	);
 };
-
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const res = await axios.get(
 		`${process.env.API_URL}/api/orders/${params.id}`,
 	);
-
 	ctx.res.setHeader(
 		'Cache-Control',
 		'public, s-maxage=30, stale-while-revalidate=59',
 	);
-
 	return {
 		props: { order: res.data },
 	};
 };
-
 export default Order;

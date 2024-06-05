@@ -13,11 +13,9 @@
 	-ms-border-radius: 3px;
 	-o-border-radius: 3px;
 }
-
 .mainAddButton:hover {
 	background-color: rgb(194, 29, 0);
 }
-
 .container {
 	width: 100vw;
 	height: 100vh;
@@ -32,7 +30,6 @@
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 }
-
 .wrapper {
 	width: 500px;
 	background-color: white;
@@ -47,7 +44,6 @@
 	-ms-border-radius: 7px;
 	-o-border-radius: 7px;
 }
-
 .close {
 	width: 30px;
 	height: 30px;
@@ -71,43 +67,35 @@
 	-ms-transition: all 0.05s ease-in-out;
 	-o-transition: all 0.05s ease-in-out;
 }
-
 .close:hover {
 	background-color: rgb(0, 0, 0);
 	border: 3px solid #f15730;
 }
-
 .item {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
 }
-
 .label {
 	margin-bottom: 5px;
 	font-size: 14px;
 	font-weight: 500;
 }
-
 .input {
 	border: none;
 	border-bottom: 1px solid gray;
 	outline: none;
 }
-
 .priceContainer {
 	display: flex;
 	justify-content: space-between;
 }
-
 .inputSm {
 	width: 25%;
 }
-
 .priceContainer .inputSm {
-	width: 50%
+	width: 50%;
 }
-
 .priceContainer div button {
 	margin-left: 4px;
 	display: inline-flex;
@@ -124,29 +112,24 @@
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-
-html[dir="rtl"] .priceContainer div button {
+html[dir='rtl'] .priceContainer div button {
 	margin-right: 4px;
 	margin-left: 0;
 	right: auto;
 	left: 0;
 }
-
 .priceContainer div button:hover {
 	background-color: rgb(194, 29, 0);
 }
-
 .extra {
 	display: flex;
 	justify-content: space-between;
 }
-
 .extraItems {
 	margin: 10px 0px;
 	display: flex;
 	flex-wrap: wrap;
 }
-
 .extraItem {
 	padding: 5px;
 	font-size: 14px;
@@ -161,16 +144,13 @@ html[dir="rtl"] .priceContainer div button {
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
 }
-
 .extraItem span {
 	margin-right: 10px;
 }
-
-html[dir="rtl"] .extraItem span {
+html[dir='rtl'] .extraItem span {
 	margin-right: 0;
 	margin-left: 10px;
 }
-
 .addButton {
 	width: 25%;
 	border: none;
@@ -186,11 +166,9 @@ html[dir="rtl"] .extraItem span {
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-
 .addButton:hover {
 	background-color: rgb(0, 100, 100);
 }
-
 .priceContainer button {
 	border: none;
 	background: #008080;
@@ -199,17 +177,14 @@ html[dir="rtl"] .extraItem span {
 	color: aliceblue;
 	cursor: pointer;
 }
-
 .priceContainer .button2 svg {
 	position: relative;
 	top: 2px;
 	left: 0.2px;
 }
-
 .priceContainer button:hover {
 	background: #004f4f;
 }
-
 .extra button {
 	border: none;
 	background: #008080;
@@ -222,11 +197,9 @@ html[dir="rtl"] .extraItem span {
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-
 .extra button:hover {
 	background: #004f4f;
 }
-
 .extraItemRemove {
 	border: none;
 	background: #ff5656;
@@ -239,11 +212,9 @@ html[dir="rtl"] .extraItem span {
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-
 .extraItemRemove:hover {
 	background: #ff3f3f;
 }
-
 .extraItemRemove svg {
 	position: relative;
 	top: 2px;

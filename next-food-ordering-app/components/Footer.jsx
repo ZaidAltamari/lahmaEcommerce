@@ -3,30 +3,24 @@ import useInstallPrompt from './useInstallPrompt';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
 import { useState } from 'react';
-
 const Footer = () => {
 	const { prompt } = useInstallPrompt();
 	const { t, lang } = useTranslation('common');
 	const [showInstallPopup, setShowInstallPopup] = useState(false);
-
 	const handleAppleStoreBoxClick = () => {
 		const isAppleDevice =
 			/iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
-
 		if (isAppleDevice) {
 			setShowInstallPopup(true);
 		}
 	};
-
 	const closeInstallPopup = () => {
 		setShowInstallPopup(false);
 	};
-
 	const handleInstallClick = () => {
 		if (!prompt) return;
 		prompt.prompt();
 	};
-
 	return (
 		<>
 			<div className={styles.container}>
@@ -169,5 +163,4 @@ const Footer = () => {
 		</>
 	);
 };
-
 export default Footer;

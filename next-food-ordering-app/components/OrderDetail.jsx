@@ -14,18 +14,15 @@ import {
 	Input,
 } from '@mui/material';
 import areasData from './CityArea.json';
-
 const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 	const [customer, setCustomer] = useState('');
 	const [address, setAddress] = useState('');
 	const [phone, setPhone] = useState('');
 	const { t, lang } = useTranslation('common');
 	const [area, setArea] = useState('');
-
 	const handleAreaChange = (event) => {
 		setArea(event.target.value);
 	};
-
 	const handleClick = async () => {
 		if (!address) {
 			Swal.fire({
@@ -38,7 +35,6 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 			});
 			return;
 		}
-
 		const shippingCost =
 			areasData.areas.find((data) => data.name === area)?.shippingCost || 0;
 		const newTotal = total + shippingCost;
@@ -103,14 +99,12 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 			}
 		});
 	};
-
 	return (
 		<>
 			<div className={styles.container}>
 				<span
 					className={styles.closeButton}
-					onClick={() => setCash(false)}
-				>
+					onClick={() => setCash(false)}>
 					<IoClose
 						size={23}
 						color='white'
@@ -119,8 +113,7 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 				<div className={styles.wrapper}>
 					<h1
 						className={styles.title}
-						style={{ color: 'black' }}
-					>
+						style={{ color: 'black' }}>
 						{lang === 'en'
 							? `Your total is ${total} AED`
 							: 'المبلغ الإجمالي هو ' + toArabic(total) + ' درهم '}
@@ -128,8 +121,7 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 					<div className={styles.item}>
 						<label
 							className={styles.label}
-							style={{ color: 'black' }}
-						>
+							style={{ color: 'black' }}>
 							{lang === 'en' ? 'Full Name' : 'الاسم الكامل'}
 						</label>
 						<Input
@@ -144,8 +136,7 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 					<div className={styles.item}>
 						<label
 							className={styles.label}
-							style={{ color: 'black' }}
-						>
+							style={{ color: 'black' }}>
 							{lang === 'en' ? 'Phone Number' : 'رقم الهاتف'}
 						</label>
 						<PhoneInput
@@ -159,15 +150,13 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 					<div className={styles.item}>
 						<label
 							className={styles.label}
-							style={{ color: 'black' }}
-						>
+							style={{ color: 'black' }}>
 							{lang === 'en' ? 'Area' : 'المنطقة'}
 						</label>
 						<FormControl>
 							<InputLabel
 								id='area-label'
-								style={{ lineHeight: 0.9 }}
-							>
+								style={{ lineHeight: 0.9 }}>
 								{lang === 'en' ? 'Select Area' : 'اختر المنطقة'}
 							</InputLabel>
 							<Select
@@ -175,8 +164,7 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 								id='area-select'
 								value={area}
 								onChange={handleAreaChange}
-								style={{ padding: '0px', height: 45 }}
-							>
+								style={{ padding: '0px', height: 45 }}>
 								{areasData.areas.map((area) => (
 									<MenuItem
 										key={area.name}
@@ -184,20 +172,17 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 										style={{
 											padding: '5px',
 											fontSize: '14px',
-										}}
-									>
+										}}>
 										{lang === 'en' ? area.name : area.name_ar}
 									</MenuItem>
 								))}
 							</Select>
 						</FormControl>
 					</div>
-
 					<div className={styles.item}>
 						<label
 							className={styles.label}
-							style={{ color: 'black' }}
-						>
+							style={{ color: 'black' }}>
 							{lang === 'en' ? 'Address' : 'العنوان'}
 						</label>
 						<Input
@@ -214,8 +199,7 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 					<button
 						className={styles.button}
 						disabled={!customer || !phone || !address}
-						onClick={handleClick}
-					>
+						onClick={handleClick}>
 						{lang === 'en' ? 'Confirm' : 'تأكيد'}
 					</button>
 				</div>
@@ -223,5 +207,4 @@ const OrderDetail = ({ total, createOrder, cart, setCash }) => {
 		</>
 	);
 };
-
 export default OrderDetail;

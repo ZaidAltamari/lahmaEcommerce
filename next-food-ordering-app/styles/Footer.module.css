@@ -1,232 +1,201 @@
 .container {
-  height: calc(45vh - 100px);
-  background-color: #222;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-  align-content: center;
+	height: calc(45vh - 100px);
+	background-color: #222;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	overflow: hidden;
+	align-content: center;
 }
-
 .item {
-  display: flex;
-  position: relative;
-  flex: 1;
+	display: flex;
+	position: relative;
+	flex: 1;
 }
-
 .item:last-child {
-  flex: 2;
-  padding: 10px;
-  justify-content: space-between;
+	flex: 2;
+	padding: 10px;
+	justify-content: space-between;
 }
-
 .copyright {
-  display: flex;
-  background-color: #222;
-  color: lightgray;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  text-align: center;
+	display: flex;
+	background-color: #222;
+	color: lightgray;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	text-align: center;
 }
-
 .card {
-  flex: 1;
-  padding: 0 20px;
+	flex: 1;
+	padding: 0 20px;
 }
-
 .title {
-  font-size: 18px;
-  color: #b7903c;
+	font-size: 18px;
+	color: #b7903c;
 }
-
 .text {
-  color: lightgray;
+	color: lightgray;
 }
-
 .motto {
-  color: rgb(211, 211, 211);
+	color: rgb(211, 211, 211);
 }
-
 .map {
-  border: 0;
-  width: 100%;
-  height: 243px;
+	border: 0;
+	width: 100%;
+	height: 243px;
 }
-
 .PWA {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
-
 .android,
 .apple {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.23);
-  flex: none;
-  cursor: pointer;
-  margin: 4px;
-  text-align: center;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #ffffff;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.23);
+	flex: none;
+	cursor: pointer;
+	margin: 4px;
+	text-align: center;
 }
-
 .apple div h3,
 .android div h3 {
-  color: #b7903c;
-  font-size: 11px;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
+	color: #b7903c;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
 }
-
 .android div p,
 .apple div p {
-  color: rgb(0, 0, 0);
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
+	color: rgb(0, 0, 0);
+	font-size: 14px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
 }
-
 @media screen and (max-width: 998px) {
-  .item:last-child {
-    padding: 10px;
-  }
-
-  .container {
-    height: auto;
-    text-align: center;
-    flex-direction: column;
-  }
-
-  .item {
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  .text {
-    font-size: 20px;
-  }
-
-  .map {
-    width: 100vw;
-  }
-
-  .copyright {
-    padding: 0 10px 80px 10px;
-  }
+	.item:last-child {
+		padding: 10px;
+	}
+	.container {
+		height: auto;
+		text-align: center;
+		flex-direction: column;
+	}
+	.item {
+		flex-direction: column;
+		flex: 1;
+	}
+	.title {
+		font-size: 30px;
+	}
+	.text {
+		font-size: 20px;
+	}
+	.map {
+		width: 100vw;
+	}
+	.copyright {
+		padding: 0 10px 80px 10px;
+	}
 }
-
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	-webkit-backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
 }
-
 .installPopup::after {
-  content: "";
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 15px solid transparent;
-  border-top-color: #fff;
+	content: '';
+	position: absolute;
+	bottom: -28px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 15px solid transparent;
+	border-top-color: #fff;
 }
-
-
 .installPopup {
-  background-color: #fff2e6;
-  border-radius: 10px;
-  padding: 4px 15px 15px 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 95%;
-  max-width: 380px;
-  margin: auto;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
+	background-color: #fff2e6;
+	border-radius: 10px;
+	padding: 4px 15px 15px 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 95%;
+	max-width: 380px;
+	margin: auto;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
 }
-
 .installPopup.show {
-  bottom: 15px;
+	bottom: 15px;
 }
-
-
 .installPopup p {
-  color: #333;
+	color: #333;
 }
-
 .installPopup ol {
-  counter-reset: step-counter;
-  list-style: none;
-  padding-left: 0;
-  -webkit-margin-before: 0;
-  margin-block-start: 0;
-  -webkit-padding-before: 0;
-  padding-block-start: 0;
-  -webkit-margin-after: 0;
-  margin-block-end: 0;
-  -webkit-padding-start: 0;
-  padding-inline-start: 0;
+	counter-reset: step-counter;
+	list-style: none;
+	padding-left: 0;
+	-webkit-margin-before: 0;
+	margin-block-start: 0;
+	-webkit-padding-before: 0;
+	padding-block-start: 0;
+	-webkit-margin-after: 0;
+	margin-block-end: 0;
+	-webkit-padding-start: 0;
+	padding-inline-start: 0;
 }
-
 .installPopup ol li {
-  counter-increment: step-counter;
-  margin-bottom: 10px;
-  position: relative;
-  -webkit-padding-start: 35px;
-  padding-inline-start: 35px;
-  font-size: 0.875rem;
+	counter-increment: step-counter;
+	margin-bottom: 10px;
+	position: relative;
+	-webkit-padding-start: 35px;
+	padding-inline-start: 35px;
+	font-size: 0.875rem;
 }
-
 .installPopup ol li:before {
-  content: counter(step-counter);
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0;
-  background-color: #e74c3c;
-  border-radius: 50%;
-  color: white;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  font-weight: bold;
+	content: counter(step-counter);
+	position: absolute;
+	inset-inline-start: 0;
+	top: 0;
+	background-color: #e74c3c;
+	border-radius: 50%;
+	color: white;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	font-weight: bold;
 }
-
 .installPopup button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin: 20px auto 0 auto;
-  cursor: pointer;
-  border-radius: 5px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 20px auto 0 auto;
+	cursor: pointer;
+	border-radius: 5px;
 }
-
 .installPopup button:hover {
-  background-color: #45a049;
+	background-color: #45a049;
 }

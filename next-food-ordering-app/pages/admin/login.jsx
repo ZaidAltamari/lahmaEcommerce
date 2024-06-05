@@ -4,14 +4,12 @@ import { useState } from 'react';
 import styles from '../../styles/Login.module.css';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
-
 const Login = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(false);
 	const router = useRouter();
-	const { t, lang } = useTranslation('common');
-
+	const { t } = useTranslation('common');
 	const handleClick = async () => {
 		try {
 			await axios.post(`${process.env.API_URL}/api/login`, {
@@ -23,7 +21,6 @@ const Login = () => {
 			setError(true);
 		}
 	};
-
 	return (
 		<>
 			<Head>
@@ -47,8 +44,7 @@ const Login = () => {
 					/>
 					<button
 						onClick={handleClick}
-						className={styles.button}
-					>
+						className={styles.button}>
 						Sign In
 					</button>
 					{error && (
@@ -59,5 +55,4 @@ const Login = () => {
 		</>
 	);
 };
-
 export default Login;

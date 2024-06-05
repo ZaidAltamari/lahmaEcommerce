@@ -1,11 +1,8 @@
 import dbConnect from '../../../util/mongo';
 import Product from '../../../models/Product';
-
 export default async function handler(req, res) {
 	const { method } = req;
-
 	await dbConnect();
-
 	if (method === 'GET') {
 		try {
 			const products = await Product.find();
@@ -14,7 +11,6 @@ export default async function handler(req, res) {
 			res.status(500).json(err);
 		}
 	}
-
 	if (method === 'POST') {
 		try {
 			const product = await Product.create(req.body);

@@ -14,7 +14,6 @@ const Navbar = ({ admin }) => {
 	const [anchorEl, setAnchorEl] = useState(null);
 	let quantity = useSelector((state) => state.cart?.quantity);
 	const { t, lang } = useTranslation('common');
-
 	if (quantity == undefined) {
 		quantity = 0;
 	}
@@ -24,7 +23,6 @@ const Navbar = ({ admin }) => {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-
 	return (
 		<nav className={styles.container}>
 			<div className={[styles.item, styles.phone].join(' ')}>
@@ -207,5 +205,4 @@ const Navbar = ({ admin }) => {
 		</nav>
 	);
 };
-
 export default Navbar;

@@ -1,11 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
-
 const MultiSelectDropdown = ({ options, onChange, value }) => {
 	const selectedOptions = options.filter((option) =>
 		(value || []).includes(option.value),
 	);
-
 	return (
 		<Select
 			options={options}
@@ -16,5 +14,4 @@ const MultiSelectDropdown = ({ options, onChange, value }) => {
 		/>
 	);
 };
-
 export default MultiSelectDropdown;

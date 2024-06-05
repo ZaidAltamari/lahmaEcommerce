@@ -6,7 +6,6 @@
 // 		bodyParser: false,
 // 	},
 // };
-
 // function convertPathToUrl(filePath, req) {
 // 	const protocol = req.headers.referer.split(':')[0];
 // 	const host = req.headers.host;
@@ -15,7 +14,6 @@
 // 	const fileUrl = `${protocol}://${host}${publicPath}`;
 // 	return fileUrl;
 // }
-
 // export default async function handler(req, res) {
 // 	if (req.method === 'POST') {
 // 		const form = new multiparty.Form({ uploadDir: filePath });
@@ -38,16 +36,13 @@
 import multiparty from 'multiparty';
 import { promises as fs } from 'fs';
 import path from 'path';
-
 export const config = {
 	api: {
 		bodyParser: false,
 	},
 };
-
 const uploadFile = async (req, res) => {
 	const form = new multiparty.Form();
-
 	form.parse(req, async (error, fields, files) => {
 		if (error) throw new Error(error);
 		const { path: tempPath, originalFilename } = files.file[0];
@@ -60,5 +55,4 @@ const uploadFile = async (req, res) => {
 		res.status(200).json({ data: `/images/${originalFilename}` });
 	});
 };
-
 export default uploadFile;

@@ -1,11 +1,8 @@
 import dbConnect from '../../../util/mongo';
 import Order from '../../../models/Order';
-
 const handler = async (req, res) => {
 	const { method } = req;
-
 	await dbConnect();
-
 	if (method === 'GET') {
 		try {
 			const deviceId = req.query.deviceId;
@@ -17,7 +14,6 @@ const handler = async (req, res) => {
 			res.status(500).json(err);
 		}
 	}
-
 	if (method === 'POST') {
 		try {
 			const order = await Order.create({
@@ -30,5 +26,4 @@ const handler = async (req, res) => {
 		}
 	}
 };
-
 export default handler;

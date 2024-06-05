@@ -1,6 +1,5 @@
 // import puppeteer from 'puppeteer';
 // import { promises as fs } from 'fs';
-
 // class BrowserHandler {
 // 	constructor(wsEndpoint) {
 // 		this.browser = false;
@@ -11,17 +10,14 @@
 // 			this.launchBrowser(),
 // 		);
 // 	}
-
 // 	async saveToJSONFile(data, file) {
 // 		await fs.writeFile(file, JSON.stringify(data));
 // 		return file;
 // 	}
-
 // 	async getFileContents(file) {
 // 		const data = await fs.readFile(file);
 // 		return JSON.parse(data);
 // 	}
-
 // 	async launchBrowser() {
 // 		if (this.isLaunching || this.isConnected) return;
 // 		this.isLaunching = true;
@@ -60,7 +56,6 @@
 // 			await blankPage.close();
 // 		}
 // 	}
-
 // 	async resumeSessionFromFile(file) {
 // 		try {
 // 			const wsEndpointObj = await this.getFileContents(file);
@@ -82,12 +77,10 @@
 // 		}
 // 	}
 // }
-
 // const browserHandler = new BrowserHandler();
 // browserHandler
 // 	.resumeSessionFromFile('session.json')
 // 	.catch(() => browserHandler.launchBrowser());
-
 // export default async function handler(req, res) {
 // 	const { phoneNumber, message } = req.body;
 // 	while (!browserHandler.browser) {
@@ -145,7 +138,6 @@
 // 					}
 // 				}
 // 			}
-
 // 			let retries3 = 5;
 // 			let listItem;
 // 			while (retries3--) {
@@ -170,7 +162,6 @@
 // 					}
 // 				}
 // 			}
-
 // 			if (listItem === null || listItem === undefined) {
 // 				let retries4 = 5;
 // 				let searchBox2;
@@ -201,7 +192,6 @@
 // 					}
 // 				}
 // 			}
-
 // 			await page.waitForTimeout(150);
 // 			let retries5 = 5;
 // 			let messageBox;
@@ -223,7 +213,6 @@
 // 					}
 // 				}
 // 			}
-
 // 			res.json({ status: 'Message sent' });
 // 			console.log('Message sent');
 // 		} catch (error) {

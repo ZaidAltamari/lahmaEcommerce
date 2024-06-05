@@ -6,7 +6,6 @@ import MultiSelectDropdown from './MultiSelectDropdown';
 import { IoClose } from 'react-icons/io5';
 import useTranslation from 'next-translate/useTranslation';
 import { AiOutlineClose, AiOutlinePlus } from 'react-icons/ai';
-
 const Add = memo(({ setClose, productToEdit, onCancel }) => {
 	const [product, setProduct] = useState(
 		() =>
@@ -20,9 +19,7 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 				colors: productToEdit ? productToEdit.colors : [],
 			},
 	);
-
 	const { t, lang } = useTranslation('common');
-
 	const changePrice = useCallback((e, index) => {
 		setProduct((prevProduct) => {
 			const newPrices = [...prevProduct.prices];
@@ -30,39 +27,33 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 			return { ...prevProduct, prices: newPrices };
 		});
 	}, []);
-
 	const handleSizeChange = useCallback((selectedSizes) => {
 		setProduct((prevProduct) => ({
 			...prevProduct,
 			sizes: selectedSizes.map((size) => size.value),
 		}));
 	}, []);
-
 	const handleColorChange = useCallback((selectedColors) => {
 		setProduct((prevProduct) => ({
 			...prevProduct,
 			colors: selectedColors.map((color) => color.value),
 		}));
 	}, []);
-
 	const handleCategoryChange = useCallback((selectedOptions) => {
 		setProduct((prevProduct) => ({
 			...prevProduct,
 			category: selectedOptions.map((option) => option.value),
 		}));
 	}, []);
-
 	const uploadFile = async (file) => {
 		const data = new FormData();
 		data.append('file', file);
 		const uploadRes = await axios.post('/api/upload', data);
 		return uploadRes.data.data;
 	};
-
 	const createProduct = async (product) => {
 		await axios.post(`${process.env.API_URL}/api/products`, product);
 	};
-
 	const showSuccessMessage = useCallback((message) => {
 		Swal.fire({
 			position: 'center',
@@ -73,7 +64,6 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 			timerProgressBar: true,
 		});
 	}, []);
-
 	const showErrorMessage = useCallback((message) => {
 		Swal.fire({
 			position: 'center',
@@ -84,7 +74,6 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 			timerProgressBar: true,
 		});
 	}, []);
-
 	const handleCreate = useCallback(async () => {
 		try {
 			const url = await uploadFile(product.file);
@@ -114,7 +103,6 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 		onCancel,
 		lang,
 	]);
-
 	const handleUpdate = useCallback(async () => {
 		try {
 			let url;
@@ -155,7 +143,6 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 		onCancel,
 		lang,
 	]);
-
 	const deletePrice = useCallback((index) => {
 		setProduct((prevProduct) => {
 			const newPrices = [...prevProduct.prices];
@@ -163,7 +150,6 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 			return { ...prevProduct, prices: newPrices };
 		});
 	}, []);
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.wrapper}>
@@ -310,25 +296,43 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 					<MultiSelectDropdown
 						options={[
 							{ value: 'Best Sellers', label: 'best sellers' },
-							{ value: 'Our Mix Grill', label: 'Meal for four' },
-							{ value: 'Meal for one', label: 'Meal for one' },
-							{ value: 'Meal for two', label: 'Meal for two' },
-							{ value: 'Sandwiches', label: 'Sandwiches' },
-							{ value: 'Wraps', label: 'Wraps' },
-							{ value: 'Appetizer', label: 'Appetizer' },
-							{ value: 'Pans', label: 'Pans' },
-							{ value: 'Salad', label: 'Salad' },
-							{ value: 'Australian Lamb', label: 'Australian Lamb' },
-							{ value: 'Local Lamb', label: 'Local Lamb' },
-							{ value: 'Syrian Lamb', label: 'Syrian Lamb' },
-							{ value: 'Mutton', label: 'Mutton' },
-							{ value: 'Australian Beef', label: 'Australian Beef' },
-							{ value: 'Local Beef', label: 'Local Beef' },
-							{ value: 'Fresh Chicken', label: 'Fresh Chicken' },
-							{ value: 'Ready To Cook', label: 'Ready To Cook' },
-							{ value: 'Ready To Grill', label: 'Ready To Grill' },
-							{ value: 'Frozen Item', label: 'Frozen Item' },
-							{ value: 'Soft Drinks', label: 'Soft Drinks' },
+							{ value: 'Home & Garden', label: 'Home & Garden' },
+							{ value: 'Kitchen & Dining', label: 'Kitchen & Dining' },
+							{
+								value: 'Kitchen Tools & Utensils',
+								label: 'Kitchen Tools & Utensils',
+							},
+							{ value: 'Kitchen Slicers', label: 'Kitchen Slicers' },
+							{
+								value: 'Kitchen Appliances',
+								label: 'Kitchen Appliances',
+							},
+							{ value: 'Decor', label: 'Decor' },
+							{ value: 'Electronics', label: 'Electronics' },
+							{ value: 'Hardware', label: 'Hardware' },
+							{ value: 'Tools', label: 'Tools' },
+							{
+								value: 'Apparel & Accessories',
+								label: 'Apparel & Accessories',
+							},
+							{ value: 'Office Supplies', label: 'Office Supplies' },
+							{ value: 'Audio', label: 'Audio' },
+							{ value: 'Jewelry', label: 'Jewelry' },
+							{
+								value: 'Household Supplies',
+								label: 'Household Supplies',
+							},
+							{
+								value: 'Storage & Organization',
+								label: 'Storage & Organization',
+							},
+							{ value: 'Watches', label: 'Watches' },
+							{ value: 'Grinders', label: 'Grinders' },
+							{
+								value: 'Headphones & Headsets',
+								label: 'Headphones & Headsets',
+							},
+							{ value: 'Headphones', label: 'Headphones' },
 						]}
 						onChange={handleCategoryChange}
 						value={product.category}

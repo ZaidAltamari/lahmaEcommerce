@@ -13,9 +13,7 @@ const MenuList = ({ menuListItems }) => {
 		autoplay: true,
 		animationData: require('../public/lottie-files/empty-cat.json'),
 	};
-
 	const [filteredProducts, setFilteredProducts] = useState(menuListItems);
-
 	const handleCategoryClick = useCallback(
 		(selectedCategory) => {
 			const newFilteredProducts = menuListItems.filter((product) =>
@@ -25,17 +23,14 @@ const MenuList = ({ menuListItems }) => {
 		},
 		[menuListItems],
 	);
-
 	useEffect(() => {
 		handleCategoryClick('Best Sellers');
 	}, [handleCategoryClick]);
-
 	const renderSubMenu = (menuTitle, items) => {
 		return (
 			<li
 				className={barStyles.menuItem}
-				key={menuTitle}
-			>
+				key={menuTitle}>
 				<div onClick={() => handleCategoryClick(items[0])}>
 					{t(menuTitle)}
 				</div>
@@ -43,8 +38,7 @@ const MenuList = ({ menuListItems }) => {
 					{items.map((item) => (
 						<li
 							key={`${menuTitle}-${item}`}
-							className={barStyles.menuItem}
-						>
+							className={barStyles.menuItem}>
 							<div onClick={() => handleCategoryClick(item)}>
 								{t(item)}
 							</div>
@@ -54,17 +48,14 @@ const MenuList = ({ menuListItems }) => {
 			</li>
 		);
 	};
-
 	return (
 		<div
 			id='menu'
-			className={styles.container}
-		>
+			className={styles.container}>
 			<MobileMenuList handleCategoryClick={handleCategoryClick} />
 			<h1
 				id='menu'
-				className={styles.title}
-			>
+				className={styles.title}>
 				{t('menu')}
 			</h1>
 			<br />
@@ -72,78 +63,73 @@ const MenuList = ({ menuListItems }) => {
 				<ol>
 					<li
 						className={barStyles.menuItem}
-						key='best sellers - mobile'
-					>
+						key='best sellers - mobile'>
 						<div
 							onClick={() => {
 								handleCategoryClick('Best Sellers');
-							}}
-						>
+							}}>
 							{t('Best Sellers')}
 						</div>
 					</li>
 					<li
 						className={barStyles.menuItem}
-						key={'Our Mix Grill - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Our Mix Grill')}>
-							{t('Meal For Four')}
+						key={'Home & Garden - mobile'}>
+						<div onClick={() => handleCategoryClick('Home & Garden')}>
+							{t('Home & Garden')}
 						</div>
 					</li>
-					{renderSubMenu('Meals', ['Meal for one', 'Meal for two'])}
-					<li
-						className={barStyles.menuItem}
-						key={'Sandwiches - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Sandwiches')}>
-							{t('Sandwiches')}
-						</div>
-					</li>
-					<li
-						className={barStyles.menuItem}
-						key={'Appetizers - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Appetizer')}>
-							{t('Appetizers')}
-						</div>
-					</li>
-					<li
-						className={barStyles.menuItem}
-						key={'Pans - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Pans')}>
-							{t('Pans')}
-						</div>
-					</li>
-					<li
-						className={barStyles.menuItem}
-						key={'Salads - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Salad')}>
-							{t('Salads')}
-						</div>
-					</li>
-					{renderSubMenu('Lambs', [
-						'Australian Lamb',
-						'Local Lamb',
-						'Syrian Lamb',
+					{renderSubMenu('Meals', [
+						'Kitchen & Dining',
+						'Kitchen Tools & Utensils',
 					])}
 					<li
 						className={barStyles.menuItem}
-						key={'Mutton - mobile'}
-					>
-						<div onClick={() => handleCategoryClick('Mutton')}>
-							{t('Mutton')}
+						key={'Kitchen Slicers - mobile'}>
+						<div onClick={() => handleCategoryClick('Kitchen Slicers')}>
+							{t('Kitchen Slicers')}
 						</div>
 					</li>
-					{renderSubMenu('Beef', ['Australian Beef', 'Local Beef'])}
+					<li
+						className={barStyles.menuItem}
+						key={'Decors - mobile'}>
+						<div onClick={() => handleCategoryClick('Decor')}>
+							{t('Decors')}
+						</div>
+					</li>
+					<li
+						className={barStyles.menuItem}
+						key={'Electronics - mobile'}>
+						<div onClick={() => handleCategoryClick('Electronics')}>
+							{t('Electronics')}
+						</div>
+					</li>
+					<li
+						className={barStyles.menuItem}
+						key={'Hardwares - mobile'}>
+						<div onClick={() => handleCategoryClick('Hardware')}>
+							{t('Hardwares')}
+						</div>
+					</li>
+					{renderSubMenu('Lambs', [
+						'Tools',
+						'Apparel & Accessories',
+						'Office Supplies',
+					])}
+					<li
+						className={barStyles.menuItem}
+						key={'Audio - mobile'}>
+						<div onClick={() => handleCategoryClick('Audio')}>
+							{t('Audio')}
+						</div>
+					</li>
+					{renderSubMenu('Beef', ['Jewelry', 'Household Supplies'])}
 					{renderSubMenu('Other Meals', [
-						'Fresh Chicken',
-						'Ready To Cook',
-						'Ready To Grill',
-						'Frozen Items',
-						'Soft Drinks',
-						'Wraps',
+						'Storage & Organization',
+						'Watches',
+						'Grinders',
+						'Headphones & Headsetss',
+						'Headphones',
+						'Kitchen Appliances',
 					])}
 				</ol>
 			</nav>
@@ -175,5 +161,4 @@ const MenuList = ({ menuListItems }) => {
 		</div>
 	);
 };
-
 export default MenuList;

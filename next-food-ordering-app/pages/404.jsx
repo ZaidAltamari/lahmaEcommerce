@@ -1,9 +1,8 @@
 import styles from '../styles/Custom404.module.css';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
-
 export default function Custom404() {
-	const { t, lang } = useTranslation('common');
+	const { t } = useTranslation('common');
 	return (
 		<>
 			<Head>
@@ -21,8 +20,7 @@ export default function Custom404() {
 					<p>{t('apologise')}</p>
 					<a
 						href={`${process.env.API_URL}`}
-						rel='noreferrer noopener'
-					>
+						rel='noreferrer noopener'>
 						{t('Home')}
 					</a>
 				</div>

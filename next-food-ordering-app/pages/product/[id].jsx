@@ -13,7 +13,6 @@ import { toArabic } from 'arabic-digits';
 const Lightbox = dynamic(() => import('yet-another-react-lightbox'), {
 	ssr: false,
 });
-
 const Product = ({ product }) => {
 	const [price, setPrice] = useState(product.prices[0]);
 	const [size, setSize] = useState(0);
@@ -27,7 +26,6 @@ const Product = ({ product }) => {
 	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
 	const dispatch = useDispatch();
 	const { t, lang } = useTranslation('common');
-
 	useEffect(() => {
 		const extrasObj = {};
 		product.extraOptions.forEach((option) => {
@@ -35,22 +33,18 @@ const Product = ({ product }) => {
 		});
 		setCheckedExtras(extrasObj);
 	}, [product]);
-
 	const handleError = () => {
 		setImgSrc(fallbackImg);
 	};
-
 	const changePrice = (number) => {
 		setPrice((prevPrice) => prevPrice + number);
 	};
-
 	const handleSize = (sizeIndex) => {
 		const oldPrice = product.prices[size];
 		setSize(sizeIndex);
 		const newPrice = product.prices[sizeIndex];
 		changePrice(newPrice - oldPrice);
 	};
-
 	const handleChange = (e, option) => {
 		const checked = e.target.checked;
 		setCheckedExtras((prev) => ({ ...prev, [option._id]: checked }));
@@ -62,7 +56,6 @@ const Product = ({ product }) => {
 			setExtras(extras.filter((extra) => extra._id !== option._id));
 		}
 	};
-
 	const handleClick = () => {
 		if (quantity <= 0) {
 			Swal.fire({
@@ -78,7 +71,6 @@ const Product = ({ product }) => {
 			});
 			return;
 		}
-
 		if (size === null) {
 			Swal.fire({
 				position: 'center',
@@ -91,7 +83,6 @@ const Product = ({ product }) => {
 			});
 			return;
 		}
-
 		dispatch(
 			addProduct({
 				...product,
@@ -101,7 +92,6 @@ const Product = ({ product }) => {
 				quantity,
 			}),
 		);
-
 		Swal.fire({
 			position: 'center',
 			icon: 'success',
@@ -111,7 +101,6 @@ const Product = ({ product }) => {
 			timer: 3000,
 			timerProgressBar: true,
 		});
-
 		const resetExtras = { ...checkedExtras };
 		Object.keys(resetExtras).forEach((key) => {
 			resetExtras[key] = false;
@@ -126,7 +115,6 @@ const Product = ({ product }) => {
 		product.prices.length === 1
 			? { justifyContent: 'flex-start ' }
 			: { justifyContent: 'space-around' };
-
 	return (
 		<>
 			<Head>
@@ -139,8 +127,7 @@ const Product = ({ product }) => {
 				<div className={styles.left}>
 					<div
 						className={styles.imgContainer}
-						onClick={() => setIsOpen(true)}
-					>
+						onClick={() => setIsOpen(true)}>
 						<Image
 							src={imgSrc}
 							alt='product-image'
@@ -171,21 +158,18 @@ const Product = ({ product }) => {
 					<span className={styles.price}>
 						{lang === 'ar' ? toArabic(price) : price} {t('AEDLONG')}
 					</span>
-
 					<p className={styles.desc}>
 						{lang === 'ar' ? product.desc_ar : product.desc}
 					</p>
 					<h3 className={styles.choose}>{t('Choose the size')}</h3>
 					<div
 						className={styles.sizes}
-						style={justifyContentStyle}
-					>
+						style={justifyContentStyle}>
 						{product.prices.map((price, index) => (
 							<div
 								key={index}
 								className={styles.size}
-								onClick={() => handleSize(index)}
-							>
+								onClick={() => handleSize(index)}>
 								<Image
 									src='/img/size.svg'
 									alt='product-size'
@@ -206,8 +190,7 @@ const Product = ({ product }) => {
 						{product.extraOptions.map((option) => (
 							<div
 								className={styles.option}
-								key={option._id}
-							>
+								key={option._id}>
 								<input
 									type='checkbox'
 									id={lang === 'ar' ? option.text_ar : option.text}
@@ -219,8 +202,7 @@ const Product = ({ product }) => {
 								<label
 									htmlFor={
 										lang === 'ar' ? option.text_ar : option.text
-									}
-								>
+									}>
 									{lang === 'ar' ? option.text_ar : option.text}
 								</label>
 							</div>
@@ -239,11 +221,9 @@ const Product = ({ product }) => {
 							min='1'
 							className={styles.quantity}
 						/>
-
 						<button
 							className={styles.button}
-							onClick={handleClick}
-						>
+							onClick={handleClick}>
 							{t('Add to Cart')}
 						</button>
 					</div>
@@ -252,23 +232,19 @@ const Product = ({ product }) => {
 		</>
 	);
 };
-
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const res = await axios.get(
 		`${process.env.API_URL}/api/products/${params.id}`,
 	);
-
 	ctx.res.setHeader(
 		'Cache-Control',
 		'public, s-maxage=30, stale-while-revalidate=59',
 	);
-
 	return {
 		props: {
 			product: res.data,
 		},
 	};
 };
-
 export default Product;

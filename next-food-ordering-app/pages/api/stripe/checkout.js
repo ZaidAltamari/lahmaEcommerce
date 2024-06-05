@@ -1,19 +1,15 @@
 import Stripe from 'stripe';
 import axios from 'axios';
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 	apiVersion: '2023-08-16',
 });
-
 const handler = async (req, res) => {
 	if (req.method === 'POST') {
 		try {
 			const { currency, cart, shippingCost } = req.body;
-
 			if (!cart?.products || cart.products.length === 0) {
 				return res.status(400).json({ message: 'No cart items found.' });
 			}
-
 			const lineItems = cart.products.map((product) => ({
 				price_data: {
 					currency,
@@ -26,7 +22,6 @@ const handler = async (req, res) => {
 				},
 				quantity: product.quantity,
 			}));
-
 			const cartData = {
 				method: 'stripe payment',
 				cart: JSON.stringify(cart.products),
@@ -37,12 +32,10 @@ const handler = async (req, res) => {
 				phone: req.body.phone,
 				deviceId: req.body.deviceId,
 			};
-
 			const response = await axios.post(
 				`${process.env.API_URL}/api/orders`,
 				cartData,
 			);
-
 			if (response.status === 201) {
 				const session = await stripe.checkout.sessions.create({
 					payment_method_types: ['card'],
@@ -69,5 +62,4 @@ const handler = async (req, res) => {
 		res.status(405).end('Method Not Allowed');
 	}
 };
-
 export default handler;

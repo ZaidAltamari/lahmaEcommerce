@@ -1,127 +1,106 @@
 .container {
-  width: 22%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 40px;
-  cursor: pointer;
+	width: 22%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 40px;
+	cursor: pointer;
 }
-
 @media screen and (max-width: 1200px) {
-  .productsImage {
-    width: 250px;
-    height: 250px;
-  }
+	.productsImage {
+		width: 250px;
+		height: 250px;
+	}
 }
-
 @media screen and (max-width: 900px) {
-  .productsImage {
-    width: 240px;
-    height: 240px;
-  }
+	.productsImage {
+		width: 240px;
+		height: 240px;
+	}
 }
-
 @media screen and (max-width: 530px) {
-  .productsImage {
-    width: 195px;
-    height: 195px;
-  }
+	.productsImage {
+		width: 195px;
+		height: 195px;
+	}
 }
-
 @media screen and (max-width: 420px) {
-  .productsImage {
-    width: 150px;
-    height: 150px;
-  }
+	.productsImage {
+		width: 150px;
+		height: 150px;
+	}
 }
-
 @media screen and (max-width: 300px) {
-  .productsImage {
-    width: 200px;
-    height: 200px;
-  }
+	.productsImage {
+		width: 200px;
+		height: 200px;
+	}
 }
-
-
 .title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #d1411e;
+	font-size: 18px;
+	font-weight: bold;
+	color: #d1411e;
 }
-
 .price {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666;
+	font-size: 18px;
+	font-weight: bold;
+	color: #666;
 }
-
 .desc {
-  text-align: center;
-  color: #383838;
+	text-align: center;
+	color: #383838;
 }
-
 @media screen and (max-width: 1450px) {
-  .container {
-    width: 33%;
-    padding: 20px 40px;
-  }
-
-  .title {
-    font-size: 25px;
-  }
-
-  .price,
-  .desc {
-    font-size: 18px;
-  }
+	.container {
+		width: 33%;
+		padding: 20px 40px;
+	}
+	.title {
+		font-size: 25px;
+	}
+	.price,
+	.desc {
+		font-size: 18px;
+	}
 }
-
 @media screen and (max-width: 900px) {
-  .container {
-    width: 50%;
-    padding: 20px 30px;
-  }
-
-  .title {
-    font-size: 27px;
-  }
-
-  .price,
-  .desc {
-    font-size: 17px;
-  }
+	.container {
+		width: 50%;
+		padding: 20px 30px;
+	}
+	.title {
+		font-size: 27px;
+	}
+	.price,
+	.desc {
+		font-size: 17px;
+	}
 }
-
 @media screen and (max-width: 620px) {
-  .container {
-    width: 50%;
-    padding: 10px 15px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .price,
-  .desc {
-    font-size: 15px;
-  }
+	.container {
+		width: 50%;
+		padding: 10px 15px;
+	}
+	.title {
+		font-size: 22px;
+	}
+	.price,
+	.desc {
+		font-size: 15px;
+	}
 }
-
 @media screen and (max-width: 300px) {
-  .container {
-    width: 100%;
-    padding: 10px 10px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .price,
-  .desc {
-    font-size: 15px;
-  }
+	.container {
+		width: 100%;
+		padding: 10px 10px;
+	}
+	.title {
+		font-size: 22px;
+	}
+	.price,
+	.desc {
+		font-size: 15px;
+	}
 }

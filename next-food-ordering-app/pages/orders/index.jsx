@@ -9,7 +9,6 @@ import Head from 'next/head';
 import Swal from 'sweetalert2';
 import useTranslation from 'next-translate/useTranslation';
 import { toArabic } from 'arabic-digits';
-
 const tagColors = [
 	'tagTeal',
 	'tagPurple',
@@ -20,14 +19,12 @@ const tagColors = [
 	'tagPink',
 	'tagYellow',
 ];
-
 const Orders = () => {
 	const dispatch = useDispatch();
 	const orders = useSelector(selectOrders);
 	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
 	const [imgSrc, setImgSrc] = useState(fallbackImg);
 	const { t, lang } = useTranslation('common');
-
 	useEffect(() => {
 		fetch(
 			`${process.env.API_URL}/api/orders?deviceId=${localStorage.getItem(
@@ -62,16 +59,13 @@ const Orders = () => {
 				});
 			});
 	}, [dispatch, lang]);
-
 	const handleError = () => {
 		setImgSrc(fallbackImg);
 	};
-
 	const getRandomColorClass = () => {
 		const randomIndex = Math.floor(Math.random() * tagColors.length);
 		return styles[tagColors[randomIndex]];
 	};
-
 	return (
 		<>
 			<Head>
@@ -87,8 +81,7 @@ const Orders = () => {
 					orders.map((order) => (
 						<div
 							className={styles.card}
-							key={order._id}
-						>
+							key={order._id}>
 							<div className={styles.cardHeader}>
 								<Image
 									src={imgSrc}
@@ -105,8 +98,7 @@ const Orders = () => {
 							<div className={styles.cardBody}>
 								<Link
 									href={`/orders/${order._id}`}
-									className={`${styles.tag} ${getRandomColorClass()}`}
-								>
+									className={`${styles.tag} ${getRandomColorClass()}`}>
 									<span>{t('Track Your Order')}</span>
 								</Link>
 								<h5>
@@ -187,25 +179,20 @@ const Orders = () => {
 		</>
 	);
 };
-
 export const getServerSideProps = async (ctx) => {
 	const myCookie = ctx.req?.cookies || '';
 	let admin = false;
-
 	if (myCookie.token === process.env.TOKEN) {
 		admin = true;
 	}
-
 	// ctx.res.setHeader(
 	// 	'Cache-Control',
 	// 	'public, s-maxage=30, stale-while-revalidate=59',
 	// );
-
 	return {
 		props: {
 			admin,
 		},
 	};
 };
-
 export default Orders;
