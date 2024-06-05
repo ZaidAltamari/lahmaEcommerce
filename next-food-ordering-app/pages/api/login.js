@@ -29,7 +29,7 @@ import cookie from 'cookie';
 const handler = (req, res) => {
 	if (req.method === 'POST') {
 		const { username, password } = req.body;
-		const admins = JSON.parse(process.env.ADMINS);
+		const admins = JSON.parse(process.env.ADMINS ? process.env.ADMINS : '[]');
 		const user = admins.find(
 			(admin) => admin.username === username && admin.password === password,
 		);
@@ -37,11 +37,15 @@ const handler = (req, res) => {
 		if (user) {
 			res.setHeader(
 				'Set-Cookie',
-				cookie.serialize('token', process.env.TOKEN, {
-					maxAge: 60 * 60,
-					sameSite: 'lax',
-					path: '/',
-				}),
+				cookie.serialize(
+					'token',
+					process.env.TOKEN ? process.env.TOKEN : '',
+					{
+						maxAge: 60 * 60,
+						sameSite: 'lax',
+						path: '/',
+					},
+				),
 			);
 			res.status(200).json('Successful');
 		} else {
