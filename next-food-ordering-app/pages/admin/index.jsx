@@ -183,19 +183,6 @@ const ProductsTab = ({ products, setProductList }) => {
 												/>
 											</td>
 											<td>{product.title}</td>
-											<td>
-												{product.extraOptions.map((option) => (
-													<div
-														key={option._id}
-														className={styles.extras}
-													>
-														<span className={styles.extrasText}>
-															{option.text}: {option.price}
-															AED
-														</span>
-													</div>
-												))}
-											</td>
 											<td>{product.category.join(', ')}</td>
 											<td>
 												{product.prices.map((price, index) =>
@@ -238,7 +225,6 @@ const ProductsTab = ({ products, setProductList }) => {
 												})()}
 											</td>
 											<td>
-												{' '}
 												{(() => {
 													const diffInDays = differenceInDays(
 														new Date(),
@@ -274,14 +260,14 @@ const ProductsTab = ({ products, setProductList }) => {
 											<td>
 												<button
 													className={styles.button}
-													onClick={() => handleEdit(product._id)}
-												>
+													onClick={() => handleEdit(product._id)}>
 													Edit
 												</button>
 												<button
 													className={styles.button}
-													onClick={() => handleDelete(product._id)}
-												>
+													onClick={() =>
+														handleDelete(product._id)
+													}>
 													Delete
 												</button>
 											</td>
@@ -316,8 +302,7 @@ const TodaysOrdersTab = ({
 						setSortValue(e.target.value);
 					}}
 					size='small'
-					className={styles.filterOrders}
-				>
+					className={styles.filterOrders}>
 					<MenuItem value='newest'>Sort by Newest</MenuItem>
 					<MenuItem value='oldest'>Sort by Oldest</MenuItem>
 					<MenuItem value='id'>Sort by ID</MenuItem>
@@ -335,16 +320,14 @@ const TodaysOrdersTab = ({
 				<FormControl
 					component='fieldset'
 					size='small'
-					style={{ marginLeft: '10px' }}
-				>
+					style={{ marginLeft: '10px' }}>
 					<RadioGroup
 						row
 						value={sortOrder}
 						onChange={(e) => {
 							handleSort(sortValue, e.target.value);
 							setSortOrder(e.target.value);
-						}}
-					>
+						}}>
 						<FormControlLabel
 							value='asc'
 							control={<Radio />}
@@ -428,8 +411,7 @@ const TodaysOrdersTab = ({
 										opacity: order.status >= 3 ? '0.5' : '1',
 										backgroundColor:
 											order.status >= 3 ? 'grey' : 'green',
-									}}
-								>
+									}}>
 									{order.status >= 3
 										? 'Order Delivered'
 										: 'Next Stage'}
@@ -464,8 +446,7 @@ const AllOrdersTab = ({
 						setSortValue(e.target.value);
 					}}
 					size='small'
-					className={styles.filterOrders}
-				>
+					className={styles.filterOrders}>
 					<MenuItem value='newest'>Sort by Newest</MenuItem>
 					<MenuItem value='oldest'>Sort by Oldest</MenuItem>
 					<MenuItem value='id'>Sort by ID</MenuItem>
@@ -483,16 +464,14 @@ const AllOrdersTab = ({
 				<FormControl
 					component='fieldset'
 					size='small'
-					style={{ marginLeft: '10px' }}
-				>
+					style={{ marginLeft: '10px' }}>
 					<RadioGroup
 						row
 						value={sortOrder}
 						onChange={(e) => {
 							handleSort(sortValue, e.target.value);
 							setSortOrder(e.target.value);
-						}}
-					>
+						}}>
 						<FormControlLabel
 							value='asc'
 							control={<Radio />}
@@ -576,8 +555,7 @@ const AllOrdersTab = ({
 										opacity: order.status >= 3 ? '0.5' : '1',
 										backgroundColor:
 											order.status >= 3 ? 'grey' : 'green',
-									}}
-								>
+									}}>
 									{order.status >= 3
 										? 'Order Delivered'
 										: 'Next Stage'}
@@ -591,8 +569,7 @@ const AllOrdersTab = ({
 				<div className={styles.showMoreOrders}>
 					<Button
 						variant='outlined'
-						onClick={() => setOrderLimit(orderLimit + 50)}
-					>
+						onClick={() => setOrderLimit(orderLimit + 50)}>
 						Show More Orders
 					</Button>
 				</div>
@@ -833,8 +810,7 @@ const Index = ({ initialOrders, products }) => {
 						TabScrollButtonProps={{
 							style: { background: 'red' },
 							className: styles.scrollButton,
-						}}
-					>
+						}}>
 						<Tab label='Products' />
 						<Tab label="Today's Orders" />
 						<Tab label='All Orders' />

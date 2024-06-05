@@ -40,7 +40,7 @@ const config = {
 				port: '3333',
 			},
 			{
-				hostname: 'lahmahandfahmah.com',
+				hostname: 'localhost',
 			},
 		],
 		minimumCacheTTL: 60,
@@ -53,7 +53,7 @@ const config = {
 					{ key: 'Access-Control-Allow-Credentials', value: 'true' },
 					{
 						key: 'Access-Control-Allow-Origin',
-						value: 'lahmahandfahmah.com/*',
+						value: 'localhost/*',
 					},
 					{
 						key: 'Access-Control-Allow-Methods',

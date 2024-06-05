@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 const ProductSchema = new mongoose.Schema(
 	{
 		title: {
@@ -32,18 +31,17 @@ const ProductSchema = new mongoose.Schema(
 			type: [String],
 			required: true,
 		},
-		extraOptions: {
-			type: [
-				{
-					text: { type: String, required: true },
-					text_ar: { type: String, required: true },
-					price: { type: Number, required: true },
-				},
-			],
+		sizes: {
+			type: [String],
+			enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+			required: true,
+		},
+		colors: {
+			type: [String],
+			required: true,
 		},
 	},
 	{ timestamps: true },
 );
-
 export default mongoose.models.Product ||
 	mongoose.model('Product', ProductSchema);
