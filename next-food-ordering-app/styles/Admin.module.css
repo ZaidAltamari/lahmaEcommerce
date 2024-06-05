@@ -1,0 +1,80 @@
+.container {
+  padding: 1vw;
+  margin-bottom: 12%;
+}
+
+.item {
+  flex: 1;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 10px;
+  text-align: left;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  -moz-transition: 0.15s;
+  -ms-transition: 0.15s;
+  -o-transition: 0.15s;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.button:first-child {
+  background-color: teal;
+  margin-right: 10px;
+}
+
+.button:first-child:hover {
+  background-color: rgb(32, 82, 182);
+}
+
+.button:last-child {
+  background-color: crimson;
+}
+
+.button:last-child:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.nextStepButton {
+  background-color: rgb(66, 66, 66);
+  margin-right: 10px;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  -moz-transition: 0.15s;
+  -ms-transition: 0.15s;
+  -o-transition: 0.15s;
+}
+
+.nextStepButton:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.filterOrders {
+  margin-right: 10px;
+}
+
+.showMoreOrders {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}

@@ -1,0 +1,317 @@
+.container {
+	height: 100px;
+	padding: 0px 50px;
+	background-color: #ffffffa3;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.item {
+	flex: 0.93;
+	display: flex;
+	align-items: center;
+}
+
+html[dir="rtl"] .item {
+	flex: 0.86;
+}
+
+.item:nth-child(2) {
+	flex: 0.9 1;
+}
+
+html[dir="rtl"] .item:nth-child(2) {
+	flex: 0.9 1;
+}
+
+.item:nth-child(3) {
+	flex: 0.105;
+}
+
+html[dir="rtl"] .item:nth-child(3) {
+	flex: 0.1 0;
+}
+
+.item:nth-child(4) {
+	flex: 0;
+}
+
+html[dir="rtl"] .item:nth-child(4) {
+	flex: 0.08 0;
+}
+
+.item:nth-child(5) {
+	flex: 0.07 0;
+}
+
+html[dir="rtl"] .item:nth-child(5) {
+	flex: 0;
+}
+
+.cartItem {
+	margin-left: '20px';
+}
+
+html[dir="rtl"] .cartItem {
+	margin-right: '20px';
+	margin-left: 0;
+}
+
+.item:nth-child(6) {
+	flex: 0;
+}
+
+html[dir="rtl"] .item:nth-child(6) {
+	flex: 0;
+}
+
+.item:last-child {
+	justify-content: flex-end;
+}
+
+.callButton {
+	background-color: #d63e2e;
+	border-radius: 50%;
+	padding: 10px;
+	width: 50px;
+	height: 50px;
+	font-family: 'Quicksand', serif;
+}
+
+.texts {
+	margin-left: 20px;
+	color: black;
+}
+
+html[dir="rtl"] .texts {
+	direction: ltr;
+	margin-right: 10px;
+}
+
+.text:first-child {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+html[dir="rtl"] .text:first-child {
+	font-size: 15px;
+	text-align: end;
+}
+
+.text:last-child {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.list {
+	padding: 0;
+	display: flex;
+	align-items: center;
+	list-style: none;
+	color: black;
+}
+
+.listItem {
+	margin: 20px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.cart {
+	position: relative;
+	cursor: pointer;
+}
+
+.counter {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #ff6452;
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #fff;
+}
+
+.active {
+	font-weight: bolder;
+	color: #000;
+}
+
+@media screen and (max-width: 1700px) {
+	.item:nth-child(2) {
+		flex: 0.78;
+	}
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 0.78;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.09 1;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	.item:nth-child(2) {
+		flex: 0.75;
+	}
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 0.75;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.09 1;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.item:nth-child(2) {
+		flex: 0.65;
+	}
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 0.65;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.1 1;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.item:nth-child(2) {
+		flex: 0.60;
+	}
+
+	.item:nth-child(4) {
+		flex: 0.12 1;
+	}
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 0.60;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.11 1;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.item:nth-child(2) {
+		flex: 0.50;
+	}
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 0.50;
+	}
+
+	.container {
+		padding: 0px 20px;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.2;
+	}
+}
+
+@media screen and (max-width: 620px) {
+	.item:nth-child(5) {
+		flex: 0;
+		order: -1;
+	}
+
+	.item:nth-child(2) {
+		flex: 1;
+		order: 3;
+	}
+
+	.item:nth-child(3) {
+		flex: 0;
+		order: 2;
+	}
+
+	.cartItem {
+		order: 2;
+	}
+
+	.item:nth-child(4) {
+		flex: 0.105 1;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.1;
+	}
+
+	.item:nth-child(6) {
+		display: none;
+	}
+
+	.openMainNav {
+		display: none;
+	}
+
+	.mainNav {
+		display: none;
+	}
+
+	.container {
+		flex-direction: row-reverse;
+		padding: 0px 25px;
+	}
+
+	.phone {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.item:nth-child(2) {
+		flex: 1 1;
+	}
+
+	.item:nth-child(4) {
+		flex: 0.17 1;
+	}
+
+
+	html[dir="rtl"] .item:nth-child(2) {
+		flex: 1 1;
+	}
+
+	.container {
+		padding: 0px 10px;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.27 1;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.item:nth-child(4) {
+		flex: 0.25 1;
+	}
+
+	.container {
+		padding: 0px 12px;
+	}
+
+	html[dir="rtl"] .item:nth-child(4) {
+		flex: 0.34 1;
+	}
+}
