@@ -29,6 +29,7 @@ const Cart = () => {
 	const handleError = (id) => {
 		setImgSrcs((prev) => ({ ...prev, [id]: fallbackImg }));
 	};
+
 	const createOrder = async (data) => {
 		try {
 			const orderData = {
@@ -98,7 +99,7 @@ const Cart = () => {
 	};
 	const handleRemoveFromCart = (product) => {
 		Swal.fire({
-			title: lang === 'en' ? 'Are you sure?' : 'هل انت متأكد؟',
+			title: lang === 'en' ? 'Are you sure?' : 'هل انت متأكد؟',
 			text:
 				lang === 'en'
 					? "You won't be able to revert this!"
@@ -141,13 +142,15 @@ const Cart = () => {
 							<tr className={styles.trTitle}>
 								<th>{t('Product')}</th>
 								<th>{t('Name')}</th>
-								<th>{t('Extras')}</th>
+								<th>{t('Size')}</th>
+								<th>{t('Color')}</th>
 								<th>{t('Price')}</th>
 								<th>{t('Quantity')}</th>
 								<th>{t('Total')}</th>
 							</tr>
 						</tbody>
 						<tbody>
+							{console.log(cart.products)}
 							{cart.products.map((product) => (
 								<tr
 									className={styles.tr}
@@ -179,18 +182,21 @@ const Cart = () => {
 										</span>
 									</td>
 									<td>
-										<span className={styles.extras}>
-											{product.extras.map((extra) => (
-												<span key={extra._id}>{extra.text}, </span>
-											))}
+										<span className={styles.size}>
+											{product.size}
+										</span>
+									</td>
+									<td>
+										<span className={styles.size}>
+											{product.color}
 										</span>
 									</td>
 									<td>
 										<span className={styles.price}>
 											{lang === 'ar' ? (
-												toArabic(product.price) + ' د.إ'
+												toArabic(product.prices) + ' د.إ'
 											) : (
-												<>{product.price} AED</>
+												<>{product.prices} AED</>
 											)}
 										</span>
 									</td>
@@ -206,10 +212,11 @@ const Cart = () => {
 									<td>
 										<span className={styles.total}>
 											{lang === 'ar' ? (
-												toArabic(product.price * product.quantity) +
-												' د.إ'
+												toArabic(
+													product.prices * product.quantity,
+												) + ' د.إ'
 											) : (
-												<>{product.price * product.quantity} AED</>
+												<>{product.prices * product.quantity} AED</>
 											)}
 										</span>
 									</td>

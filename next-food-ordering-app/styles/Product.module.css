@@ -2,6 +2,27 @@
 	height: calc(100vh - 100px);
 	display: flex;
 }
+.colors {
+	display: flex;
+	gap: 15px;
+	width: 40%;
+	margin-bottom: 25px;
+}
+.add {
+	margin-top: 25px;
+}
+.color {
+	background-color: #cfcccc;
+	gap: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
 .left {
 	flex: 1;
 	height: 100%;
@@ -9,6 +30,16 @@
 	align-items: center;
 	justify-content: center;
 }
+.selectedColor {
+	height: 50px;
+	margin-bottom: 50px;
+}
+.sizeColor {
+	display: flex;
+	gap: 15px;
+	width: 40%;
+}
+
 .right {
 	flex: 1;
 	padding: 20px;
@@ -27,12 +58,19 @@
 .sizes {
 	width: 40%;
 	display: flex;
+	gap: 15px;
+	margin-bottom: 25px;
 }
 .size {
-	width: 35px;
-	height: 35px;
+	width: 50px;
+	height: 50px;
 	position: relative;
 	cursor: pointer;
+	background-color: #cfcccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
 }
 .size:nth-child(2) {
 	width: 43px;
@@ -41,6 +79,9 @@
 .size:last-child {
 	width: 50px;
 	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .number {
 	position: absolute;
@@ -91,6 +132,7 @@
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 }
+
 html[dir='rtl'] .button {
 	margin-right: 10px;
 	margin-left: 0;
@@ -105,29 +147,36 @@ html[dir='rtl'] .button {
 		flex-direction: column;
 		margin-top: 20px;
 	}
+
 	.imgContainer {
 		width: 90vw;
 		height: 70vw;
 	}
+
 	.title {
 		margin: 5px;
 	}
+
 	.sizes {
 		width: 100%;
 		padding: 0px 20px;
 		justify-content: center !important;
 	}
+
 	.ingredients {
 		flex-direction: column;
 	}
+
 	.option {
 		margin: 10px;
 		font-size: 18px;
 	}
+
 	.checkbox {
 		width: 25px;
 		height: 25px;
 	}
+
 	.quantity,
 	.button {
 		height: 50px;
