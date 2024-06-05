@@ -23,7 +23,7 @@ const config = {
 				hostname: 'res.cloudinary.com',
 			},
 			{
-				hostname: 'localhost',
+				hostname: '194.195.86.67',
 				port: '765',
 			},
 			{
@@ -35,11 +35,11 @@ const config = {
 				port: '3333',
 			},
 			{
-				hostname: 'localhost',
+				hostname: '194.195.86.67',
 				port: '3333',
 			},
 			{
-				hostname: 'localhost',
+				hostname: '194.195.86.67',
 			},
 		],
 		minimumCacheTTL: 60,
@@ -52,7 +52,7 @@ const config = {
 					{ key: 'Access-Control-Allow-Credentials', value: 'true' },
 					{
 						key: 'Access-Control-Allow-Origin',
-						value: 'localhost/*',
+						value: '194.195.86.67/*',
 					},
 					{
 						key: 'Access-Control-Allow-Methods',

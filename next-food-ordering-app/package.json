@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "https://github.com/RadwanSusan/FoodOrdering"
 	},
-	"homepage": "https://localhost:765",
+	"homepage": "https://194.195.86.67:765",
 	"keywords": [
 		"next",
 		"react",
