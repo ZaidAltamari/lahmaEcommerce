@@ -160,16 +160,13 @@ const Cart = () => {
 									}>
 									<td>
 										<div className={styles.imgContainer}>
-											<Image
+											<img
 												src={imgSrcs[product._id]}
 												width={200}
 												height={150}
 												style={{ objectFit: 'contain' }}
 												alt='product-image'
 												loading='lazy'
-												placeholder='blur'
-												blurDataURL={imgSrcs[product._id]}
-												quality={85}
 												onError={() => handleError(product._id)}
 											/>
 										</div>

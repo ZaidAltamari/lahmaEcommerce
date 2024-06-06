@@ -214,13 +214,12 @@ const ProductsTab = ({ products, setProductList }) => {
 									<tbody key={product._id}>
 										<tr className={styles.trTitle}>
 											<td>
-												<Image
+												<img
 													src={`http://194.195.86.67/images/${product.img}`}
 													width={140}
 													height={110}
 													style={{ objectFit: 'cover' }}
 													alt='product-image'
-													quality={85}
 												/>
 											</td>
 											<td>{product.title}</td>

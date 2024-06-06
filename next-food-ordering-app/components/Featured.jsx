@@ -48,14 +48,11 @@ const Featured = () => {
 					<div
 						className={styles.imgContainer}
 						key={i}>
-						<Image
+						<img
 							src={img}
 							alt='featured-image'
 							style={{ objectFit: 'cover' }}
-							fill={true}
-							priority
 							sizes='(100vw, 100vh)'
-							quality={100}
 						/>
 					</div>
 				))}

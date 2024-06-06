@@ -83,16 +83,11 @@ const Orders = () => {
 							className={styles.card}
 							key={order._id}>
 							<div className={styles.cardHeader}>
-								<Image
+								<img
 									src={`${process.env.API_URL_MEDIA}${product.img}`}
 									alt='product-image'
-									quality={90}
-									placeholder='blur'
-									blurDataURL={imgSrc}
 									loading='lazy'
 									onError={handleError}
-									// width={300}
-									// height={200}
 								/>
 							</div>
 							<div className={styles.cardBody}>

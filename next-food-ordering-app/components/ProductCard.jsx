@@ -20,14 +20,11 @@ const ProductCard = ({ product }) => {
 				passHref
 				aria-label='link to product'
 				style={{ textAlign: 'center' }}>
-				<Image
+				<img
 					className={styles.productsImage}
 					src={`http://194.195.86.67/images/${product.img}`}
 					alt='product-image'
 					style={{ borderRadius: '8px', objectFit: 'cover' }}
-					quality={88}
-					placeholder='blur'
-					blurDataURL={imgSrc}
 					loading='lazy'
 					width={300}
 					height={300}
