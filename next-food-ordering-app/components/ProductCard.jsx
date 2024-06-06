@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
 				style={{ textAlign: 'center' }}>
 				<Image
 					className={styles.productsImage}
-					src={imgSrc}
+					src={`${process.env.API_URL_MEDIA}${product.img}`}
 					alt='product-image'
 					style={{ borderRadius: '8px', objectFit: 'cover' }}
 					quality={88}

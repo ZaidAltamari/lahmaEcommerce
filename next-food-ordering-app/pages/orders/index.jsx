@@ -84,7 +84,7 @@ const Orders = () => {
 							key={order._id}>
 							<div className={styles.cardHeader}>
 								<Image
-									src={imgSrc}
+									src={`${process.env.API_URL_MEDIA}${product.img}`}
 									alt='product-image'
 									quality={90}
 									placeholder='blur'
