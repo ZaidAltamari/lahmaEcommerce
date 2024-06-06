@@ -37,7 +37,7 @@ const config = {
 					{ key: 'Access-Control-Allow-Credentials', value: 'true' },
 					{
 						key: 'Access-Control-Allow-Origin',
-						value: '194.195.86.67/*',
+						value: 'http://194.195.86.67/*',
 					},
 					{
 						key: 'Access-Control-Allow-Methods',
