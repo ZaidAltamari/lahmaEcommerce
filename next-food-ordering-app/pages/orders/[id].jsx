@@ -159,7 +159,7 @@ const Order = ({ order }) => {
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const res = await axios.get(
-		`${process.env.API_URL}/api/orders/${params.id}`,
+		`http://194.195.86.67:606/api/orders/${params.id}`,
 	);
 	ctx.res.setHeader(
 		'Cache-Control',

@@ -33,7 +33,7 @@ const handler = async (req, res) => {
 				deviceId: req.body.deviceId,
 			};
 			const response = await axios.post(
-				`${process.env.API_URL}/api/orders`,
+				`http://194.195.86.67:606/api/orders`,
 				cartData,
 			);
 			if (response.status === 201) {

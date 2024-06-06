@@ -19,7 +19,7 @@ export default function Custom404() {
 					<h2>{t('PageNotFound')}</h2>
 					<p>{t('apologise')}</p>
 					<a
-						href={`${process.env.API_URL}`}
+						href={`http://194.195.86.67:606`}
 						rel='noreferrer noopener'>
 						{t('Home')}
 					</a>

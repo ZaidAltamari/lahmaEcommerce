@@ -36,7 +36,7 @@ export const getServerSideProps = async (ctx) => {
 	if (myCookie.token === process.env.TOKEN) {
 		admin = true;
 	}
-	const res = await axios.get(`${process.env.API_URL}/api/products`);
+	const res = await axios.get(`http://194.195.86.67:606/api/products`);
 	ctx.res.setHeader(
 		'Cache-Control',
 		'public, s-maxage=30, stale-while-revalidate=59',

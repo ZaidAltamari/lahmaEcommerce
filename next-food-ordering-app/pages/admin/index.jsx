@@ -72,7 +72,7 @@ const ProductsTab = ({ products, setProductList }) => {
 				});
 				if (result.isConfirmed) {
 					const res = await axios.delete(
-						`${process.env.API_URL}/api/products/` + id,
+						`http://194.195.86.67:606/api/products/` + id,
 					);
 					if (res.status >= 200 && res.status < 300) {
 						const newProduct = products.filter(
@@ -166,7 +166,7 @@ const ProductsTab = ({ products, setProductList }) => {
 				colors: product.colors,
 			};
 			await axios.put(
-				`${process.env.API_URL}/api/products/` + product._id,
+				`http://194.195.86.67:606/api/products/` + product._id,
 				updatedProduct,
 			);
 			setClose(true);
@@ -618,7 +618,9 @@ const Index = ({ initialOrders, products }) => {
 	const { t, lang } = useTranslation('common');
 	useEffect(() => {
 		const intervalId = setInterval(async () => {
-			const orderRes = await axios.get(`${process.env.API_URL}/api/orders`);
+			const orderRes = await axios.get(
+				`http://194.195.86.67:606/api/orders`,
+			);
 			setOrders(orderRes.data);
 		}, 5000);
 		const currentDate = new Date();
@@ -641,7 +643,7 @@ const Index = ({ initialOrders, products }) => {
 	}, [todaysOrders]);
 	useEffect(() => {
 		const interval = setInterval(() => {
-			axios.get(`${process.env.API_URL}/api/products`).then((res) => {
+			axios.get(`http://194.195.86.67:606/api/products`).then((res) => {
 				setProductList(res.data);
 			});
 		}, 5000);
@@ -671,7 +673,7 @@ const Index = ({ initialOrders, products }) => {
 			if (currentStatus <= 3) {
 				try {
 					const res = await axios.put(
-						`${process.env.API_URL}/api/orders/` + id,
+						`http://194.195.86.67:606/api/orders/` + id,
 						{ status: currentStatus + 1 },
 					);
 					setOrderList([
@@ -826,8 +828,8 @@ export const getServerSideProps = async (ctx) => {
 			},
 		};
 	}
-	const productRes = await axios.get(`${process.env.API_URL}/api/products`);
-	const orderRes = await axios.get(`${process.env.API_URL}/api/orders`);
+	const productRes = await axios.get(`http://194.195.86.67:606/api/products`);
+	const orderRes = await axios.get(`http://194.195.86.67:606/api/orders`);
 	orderRes.data.sort((a, b) => {
 		return new Date(b.createdAt) - new Date(a.createdAt);
 	});

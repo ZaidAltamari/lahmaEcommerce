@@ -27,7 +27,7 @@ const Orders = () => {
 	const { t, lang } = useTranslation('common');
 	useEffect(() => {
 		fetch(
-			`${process.env.API_URL}/api/orders?deviceId=${localStorage.getItem(
+			`http://194.195.86.67:606/api/orders?deviceId=${localStorage.getItem(
 				'deviceId',
 			)}`,
 		)

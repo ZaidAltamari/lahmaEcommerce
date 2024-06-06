@@ -12,7 +12,7 @@ const Login = () => {
 	const { t } = useTranslation('common');
 	const handleClick = async () => {
 		try {
-			await axios.post(`${process.env.API_URL}/api/login`, {
+			await axios.post(`http://194.195.86.67:606/api/login`, {
 				username,
 				password,
 			});

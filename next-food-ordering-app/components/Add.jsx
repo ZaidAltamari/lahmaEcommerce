@@ -52,7 +52,7 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 		return uploadRes.data.data;
 	};
 	const createProduct = async (product) => {
-		await axios.post(`${process.env.API_URL}/api/products`, product);
+		await axios.post(`http://194.195.86.67:606/api/products`, product);
 	};
 	const showSuccessMessage = useCallback((message) => {
 		Swal.fire({
@@ -124,7 +124,7 @@ const Add = memo(({ setClose, productToEdit, onCancel }) => {
 				colors: product.colors,
 			};
 			await axios.put(
-				`${process.env.API_URL}/api/products/` + product._id,
+				`http://194.195.86.67:606/api/products/` + product._id,
 				updatedProduct,
 			);
 			setClose(true);
