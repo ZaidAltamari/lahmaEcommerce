@@ -55,7 +55,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						name='twitter:url'
-						content='https://194.195.86.67'
+						content='http://194.195.86.67:511'
 					/>
 					<meta
 						name='twitter:title'
@@ -87,7 +87,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property='og:url'
-						content='https://194.195.86.67'
+						content='http://194.195.86.67:511'
 					/>
 					<meta
 						property='og:image'

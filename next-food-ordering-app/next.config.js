@@ -24,22 +24,7 @@ const config = {
 			},
 			{
 				hostname: '194.195.86.67',
-				port: '765',
-			},
-			{
-				hostname: '31.170.165.239',
-				port: '765',
-			},
-			{
-				hostname: '31.170.165.239',
-				port: '3333',
-			},
-			{
-				hostname: '194.195.86.67',
-				port: '3333',
-			},
-			{
-				hostname: '194.195.86.67',
+				port: '511',
 			},
 		],
 		minimumCacheTTL: 60,

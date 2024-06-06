@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "https://github.com/RadwanSusan/FoodOrdering"
 	},
-	"homepage": "https://194.195.86.67:765",
+	"homepage": "http://194.195.86.67:511",
 	"keywords": [
 		"next",
 		"react",
@@ -24,9 +24,9 @@
 		"payment-gateway-stripe"
 	],
 	"scripts": {
-		"dev": "next dev -p 765",
+		"dev": "next dev -p 511",
 		"build": "next build",
-		"start": "next start -p 765",
+		"start": "next start -p 511",
 		"lint": "next lint"
 	},
 	"dependencies": {
