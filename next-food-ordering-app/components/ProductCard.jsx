@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
 				style={{ textAlign: 'center' }}>
 				<img
 					className={styles.productsImage}
-					src={`http://194.195.86.67/images/${product.img}`}
+					src={`http://194.195.86.67${product.img}`}
 					alt='product-image'
 					style={{ borderRadius: '8px', objectFit: 'cover' }}
 					loading='lazy'

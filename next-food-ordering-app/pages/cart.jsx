@@ -21,7 +21,7 @@ const Cart = () => {
 	const { t, lang } = useTranslation('common');
 	const [imgSrcs, setImgSrcs] = useState(
 		cart.products.reduce((obj, product) => {
-			obj[product._id] = `${process.env.API_URL_MEDIA}${product.img}`;
+			obj[product._id] = `http://194.195.86.67${product.img}`;
 			return obj;
 		}, {}),
 	);

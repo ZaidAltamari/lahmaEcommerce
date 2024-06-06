@@ -79,7 +79,7 @@ const Product = ({ product }) => {
 						className={styles.imgContainer}
 						onClick={() => setIsOpen(true)}>
 						<img
-							src={`http://194.195.86.67/images/${product.img}`}
+							src={`http://194.195.86.67${product.img}`}
 							alt='product-image'
 							style={{ cursor: 'pointer', objectFit: 'contain' }}
 							onError={handleError}
