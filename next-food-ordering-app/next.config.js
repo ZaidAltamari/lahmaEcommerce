@@ -20,8 +20,10 @@ const config = {
 				hostname: 'res.cloudinary.com',
 			},
 			{
+				hostname: 'https://194.195.86.67',
+			},
+			{
 				hostname: 'http://194.195.86.67',
-				port: '606',
 			},
 		],
 		minimumCacheTTL: 60,
