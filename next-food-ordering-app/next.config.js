@@ -26,13 +26,8 @@ const config = {
 		],
 		minimumCacheTTL: 60,
 	},
-	async rewrites() {
-		return [
-			{
-				source: '/:path*',
-				destination: 'http://194.195.86.67:606/:path*',
-			},
-		];
+	httpAgentOptions: {
+		keepAlive: true,
 	},
 	i18n: {
 		locales: ['en', 'ar'],
