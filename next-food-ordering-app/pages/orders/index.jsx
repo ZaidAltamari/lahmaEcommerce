@@ -41,7 +41,7 @@ const Orders = () => {
 				dispatch(setOrders(data));
 				if (data[0] && data[0].cart[0]) {
 					setImgSrc(
-						`${process.env.API_URL_MEDIA}${
+						`http://194.195.86.67/images/${
 							JSON.parse(data[0].cart)[0].img
 						}`,
 					);

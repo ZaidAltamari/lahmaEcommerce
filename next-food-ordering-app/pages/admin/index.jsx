@@ -215,7 +215,7 @@ const ProductsTab = ({ products, setProductList }) => {
 										<tr className={styles.trTitle}>
 											<td>
 												<Image
-													src={`${process.env.API_URL_MEDIA}${product.img}`}
+													src={`http://194.195.86.67/images/${product.img}`}
 													width={140}
 													height={110}
 													style={{ objectFit: 'cover' }}

@@ -79,7 +79,7 @@ const Product = ({ product }) => {
 						className={styles.imgContainer}
 						onClick={() => setIsOpen(true)}>
 						<Image
-							src={`${process.env.API_URL_MEDIA}${product.img}`}
+							src={`http://194.195.86.67/images/${product.img}`}
 							alt='product-image'
 							fill
 							style={{ cursor: 'pointer', objectFit: 'contain' }}
