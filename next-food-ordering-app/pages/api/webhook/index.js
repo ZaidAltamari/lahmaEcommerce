@@ -7,7 +7,7 @@
 // async function updateOrder(session, res) {
 // 	const orderId = session.metadata.order_id;
 // 	const response = await axios.put(
-// 		`http://194.195.86.67:606/api/orders/${orderId}`,
+// 		`http://194.195.86.67/api/orders/${orderId}`,
 // 		{
 // 			payment_received: true,
 // 		},

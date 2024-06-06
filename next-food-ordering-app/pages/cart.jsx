@@ -43,7 +43,7 @@ const Cart = () => {
 				shippingCost: data.shippingCost,
 			};
 			const res = await axios.post(
-				`http://194.195.86.67:606/api/orders`,
+				`http://194.195.86.67/api/orders`,
 				orderData,
 			);
 			if (res.status === 201) {

@@ -188,7 +188,7 @@ const Product = ({ product }) => {
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const res = await axios.get(
-		`http://194.195.86.67:606/api/products/${params.id}`,
+		`http://194.195.86.67/api/products/${params.id}`,
 	);
 	ctx.res.setHeader(
 		'Cache-Control',
