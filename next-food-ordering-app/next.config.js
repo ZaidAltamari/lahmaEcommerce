@@ -23,24 +23,11 @@ const config = {
 				hostname: 'res.cloudinary.com',
 			},
 			{
-				hostname: '194.195.86.67',
-				port: '511',
+				hostname: 'http://194.195.86.67',
+				port: '606',
 			},
 		],
 		minimumCacheTTL: 60,
-	},
-	async headers() {
-		return [
-			{
-				source: '/:path*',
-				headers: [
-					{
-						key: 'Upgrade-Insecure-Requests',
-						value: '0',
-					},
-				],
-			},
-		];
 	},
 	i18n: {
 		locales: ['en', 'ar'],
