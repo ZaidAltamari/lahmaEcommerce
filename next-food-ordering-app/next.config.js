@@ -1,6 +1,3 @@
-const withPWA = require('@ducanh2912/next-pwa').default({
-	reloadOnOnline: true,
-});
 const nextTranslate = require('next-translate-plugin');
 const config = {
 	swcMinify: true,
@@ -34,4 +31,4 @@ const config = {
 		defaultLocale: 'en',
 	},
 };
-module.exports = nextTranslate(withPWA(config));
+module.exports = nextTranslate(config);
