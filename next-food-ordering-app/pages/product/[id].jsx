@@ -10,7 +10,6 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import { toArabic } from 'arabic-digits';
-
 const Lightbox = dynamic(() => import('yet-another-react-lightbox'), {
 	ssr: false,
 });
@@ -27,11 +26,9 @@ const Product = ({ product }) => {
 	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
 	const dispatch = useDispatch();
 	const { t, lang } = useTranslation('common');
-
 	const handleError = () => {
 		setImgSrc(fallbackImg);
 	};
-
 	const handleClick = () => {
 		if (quantity <= 0) {
 			Swal.fire({
@@ -64,12 +61,10 @@ const Product = ({ product }) => {
 			timer: 3000,
 			timerProgressBar: true,
 		});
-
 		setSelectedSize(product.sizes[0]);
 		setSelectedColor(selectedColor);
 		setQuantity(1);
 	};
-
 	return (
 		<>
 			<Head>
@@ -119,7 +114,6 @@ const Product = ({ product }) => {
 					<p className={styles.desc}>
 						{lang === 'ar' ? product.desc_ar : product.desc}
 					</p>
-
 					<div className={styles.sizeColorContainer}>
 						<div>
 							<h3 className={styles.choose}>{t('Choose the size')}</h3>
@@ -139,7 +133,6 @@ const Product = ({ product }) => {
 								{t('Selected Size')}: {selectedSize}
 							</span>
 						</div>
-
 						{product.colors.length > 0 && (
 							<div>
 								<h3 className={styles.choose}>
@@ -154,9 +147,7 @@ const Product = ({ product }) => {
 													? styles.selected
 													: ''
 											}`}
-											onClick={() => setSelectedColor(color)}
-
-										>
+											onClick={() => setSelectedColor(color)}>
 											<span className={styles.colorLabel}>
 												{color}
 											</span>
@@ -167,9 +158,8 @@ const Product = ({ product }) => {
 									{t('Selected Color')}: {selectedColor}
 								</span>
 							</div>
-
+						)}
 					</div>
-
 					<div className={styles.add}>
 						<input
 							onChange={(e) => {
@@ -194,6 +184,7 @@ const Product = ({ product }) => {
 		</>
 	);
 };
+
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const res = await axios.get(

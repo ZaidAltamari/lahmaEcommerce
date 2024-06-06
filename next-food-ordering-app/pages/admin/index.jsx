@@ -98,14 +98,10 @@ const ProductsTab = ({ products, setProductList }) => {
 				});
 			}
 		},
-		[product, setProductList, setClose],
+		[setProductList, setClose, products],
 	);
-	// const handleEdit = useCallback((productId) => {
-	// 	setEditingId(productId);
-	// }, []);
 	const handleEdit = useCallback(
 		(productId) => {
-			console.log(`🚀  product =>`, product);
 			const productToEdit = products.find((p) => p._id === productId);
 			setEditingId(productId);
 			setProduct({
@@ -121,34 +117,8 @@ const ProductsTab = ({ products, setProductList }) => {
 				colors: productToEdit.colors,
 			});
 		},
-		[product],
+		[products],
 	);
-	// const handleUpdate = useCallback(
-	// 	async (updatedProduct) => {
-	// 		try {
-	// 			const res = await axios.put(
-	// 				`${process.env.API_URL}/api/products/` + updatedProduct._id,
-	// 				updatedProduct,
-	// 			);
-	// 			setProductList(
-	// 				product.map((product) =>
-	// 					product._id === res.data._id ? res.data : product,
-	// 				),
-	// 			);
-	// 			setEditingId(null);
-	// 		} catch (err) {
-	// 			Swal.fire({
-	// 				position: 'center',
-	// 				icon: 'error',
-	// 				title: 'Update Failed',
-	// 				showConfirmButton: false,
-	// 				timer: 3000,
-	// 				timerProgressBar: true,
-	// 			});
-	// 		}
-	// 	},
-	// 	[product, setProductList],
-	// );
 	const showSuccessMessage = useCallback((message) => {
 		Swal.fire({
 			position: 'center',
