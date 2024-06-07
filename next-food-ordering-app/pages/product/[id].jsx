@@ -77,6 +77,7 @@ const Product = ({ product }) => {
 						className={styles.imgContainer}
 						onClick={() => setIsOpen(true)}>
 						<img
+							className={styles.productImgsmall}
 							src={imgSrc}
 							width={500}
 							height={500}

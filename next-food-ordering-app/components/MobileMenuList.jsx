@@ -22,7 +22,7 @@ const MobileMenuList = ({ handleCategoryClick }) => {
 						height={50}
 					/>
 				</div>
-				{t('OurMenu')}
+				Category
 			</button>
 			<section
 				className={styles.menu__body}

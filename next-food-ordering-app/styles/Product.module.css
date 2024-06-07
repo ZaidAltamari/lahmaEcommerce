@@ -146,6 +146,11 @@ html[dir='rtl'] .button {
 		flex-direction: column;
 		margin-top: 20px;
 	}
+	.productImgsmall {
+		width: 250px;
+		height: 250px;
+		object-fit: contain;
+	}
 
 	.imgContainer {
 		width: 90vw;
@@ -164,6 +169,13 @@ html[dir='rtl'] .button {
 
 	.ingredients {
 		flex-direction: column;
+	}
+	.colors {
+		display: flex;
+		gap: 15px;
+		width: 100%;
+		margin-bottom: 25px;
+		justify-content: center;
 	}
 
 	.option {
