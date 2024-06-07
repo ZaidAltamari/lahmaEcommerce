@@ -1,7 +1,7 @@
 .mainAddButton {
 	padding: 10px;
 	margin: 20px;
-	background-color: #d1411e;
+	background-color: #301ed1;
 	width: 150px;
 	border-radius: 3px;
 	color: white;
@@ -14,7 +14,7 @@
 	-o-border-radius: 3px;
 }
 .mainAddButton:hover {
-	background-color: #301ed1;
+	background-color: #813cb6;
 }
 .container {
 	width: 100vw;
