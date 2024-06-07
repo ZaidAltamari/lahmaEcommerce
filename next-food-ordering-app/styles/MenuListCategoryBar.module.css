@@ -1,5 +1,5 @@
 .menu {
-	background-image: linear-gradient(to right, #cb302c 0, #d1411e 100%);
+	background-image: linear-gradient(to right, #3c2ccb 0, #301ed1 100%);
 	border-radius: 0.5rem;
 	text-transform: uppercase;
 	box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
@@ -11256,7 +11256,7 @@
 		border-radius: 0.2rem;
 		padding: 1rem 0.5rem;
 		font-size: 1.3vw;
-		background: #cf392582;
+		background: #3025cf82;
 		color: rgb(255 255 255);
 	}
 	.menu > ol > li > ol > li > div:focus,
@@ -11347,7 +11347,7 @@
 }
 @media (max-width: 45rem) {
 	.menu {
-		background-image: linear-gradient(to bottom, #ed6ea0 0, #ec8c69 100%);
+		background-image: linear-gradient(to bottom, #896eed 0, #7f69ec 100%);
 	}
 	.menu div {
 		font-size: 1.3rem;
@@ -11415,7 +11415,7 @@
 }
 .subMenu {
 	z-index: 50;
-	background: #ff22004f;
+	background: #522ed6;
 	-webkit-backdrop-filter: blur(23px);
 	backdrop-filter: blur(23px);
 	border-radius: 2px;

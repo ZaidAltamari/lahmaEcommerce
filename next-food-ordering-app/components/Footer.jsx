@@ -30,7 +30,7 @@ const Footer = () => {
 						className={styles.map}
 						allowFullScreen={false}
 						loading='lazy'
-						title='Restaurant Location'
+						title='Shop Location'
 						referrerPolicy='no-referrer-when-downgrade'
 					/>
 				</div>
@@ -72,7 +72,7 @@ const Footer = () => {
 						</h2>
 					</div>
 					<div className={styles.card}>
-						<h1 className={styles.title}>{t('FindOurRestaurant')}</h1>
+						<h1 className={styles.title}>{t('FindOurStore')}</h1>
 						<p className={styles.text}>
 							{t('Address')}
 							<br />

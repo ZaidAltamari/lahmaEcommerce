@@ -51,10 +51,10 @@ const Navbar = ({ admin }) => {
 						passHref
 						aria-label='link to homepage'>
 						<Image
-							src='/img/lahmahAndFahmah/logo.png'
-							alt='restaurant logo'
-							width={80}
-							height={80}
+							src='/img/Blued_Logo_appstore.svg'
+							alt='store logo'
+							width={60}
+							height={60}
 							className={styles.DocumentLogo}
 							priority
 						/>

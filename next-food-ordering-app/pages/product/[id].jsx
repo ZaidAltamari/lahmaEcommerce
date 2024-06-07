@@ -20,10 +20,8 @@ const Product = ({ product }) => {
 	);
 	const [quantity, setQuantity] = useState(1);
 	const [isOpen, setIsOpen] = useState(false);
-	const [imgSrc, setImgSrc] = useState(
-		`${process.env.API_URL_MEDIA}${product.img}`,
-	);
-	const fallbackImg = `${process.env.API_URL_MEDIA}/images/LF-logo-1k.png`;
+	const [imgSrc, setImgSrc] = useState(`http://194.195.86.67${product.img}`);
+	const fallbackImg = `http://194.195.86.67/images/LF-logo-1k.png`;
 	const dispatch = useDispatch();
 	const { t, lang } = useTranslation('common');
 	const handleError = () => {
@@ -79,7 +77,9 @@ const Product = ({ product }) => {
 						className={styles.imgContainer}
 						onClick={() => setIsOpen(true)}>
 						<img
-							src={`http://194.195.86.67${product.img}`}
+							src={imgSrc}
+							width={500}
+							height={500}
 							alt='product-image'
 							style={{ cursor: 'pointer', objectFit: 'contain' }}
 							onError={handleError}

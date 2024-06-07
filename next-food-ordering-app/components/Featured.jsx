@@ -6,9 +6,9 @@ const Featured = () => {
 	const [index, setIndex] = useState(0);
 	const { t, lang } = useTranslation('common');
 	const images = [
-		'/img/lahmahAndFahmah/1.jpg',
-		'/img/lahmahAndFahmah/2.jpeg',
-		'/img/lahmahAndFahmah/3.jpeg',
+		'/img/claudio-schwarz-LoelYE8uw7I-unsplash.jpg',
+		'/img/blake-wisz-tE6th1h6Bfk-unsplash.jpg',
+		'/img/andrew-leu-_L3YMlqc9NA-unsplash.jpg',
 	];
 	const handleArrow = (direction) => {
 		if (direction === 'l') {
@@ -34,6 +34,7 @@ const Featured = () => {
 					fill={true}
 					priority
 					sizes='(100vw, 100vh)'
+					quality={85}
 				/>
 			</div>
 			<div
@@ -48,8 +49,10 @@ const Featured = () => {
 					<div
 						className={styles.imgContainer}
 						key={i}>
-						<img
+						<Image
 							src={img}
+							key={i}
+							fill
 							alt='featured-image'
 							style={{ objectFit: 'cover' }}
 							sizes='(100vw, 100vh)'

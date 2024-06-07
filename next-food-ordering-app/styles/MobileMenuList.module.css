@@ -211,7 +211,7 @@ html[dir='rtl'] .menu__button div {
 	border: none;
 }
 .menu__header button:hover {
-	background: #d53e36;
+	background: #3639d5;
 }
 .menu__header button div {
 	width: 15px;
@@ -273,7 +273,7 @@ html[dir='rtl'] .menu__button div {
 	margin: 5px;
 	border-radius: 8px;
 	background: #f6f6f6;
-	color: #d53e36;
+	color: #4336d5;
 	text-align: center;
 	font-size: 14px;
 	font-weight: bold;

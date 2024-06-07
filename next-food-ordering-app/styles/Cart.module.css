@@ -57,7 +57,7 @@
 }
 .button {
 	height: 30px;
-	color: #d1411e;
+	color: #522ed6;
 	font-weight: bold;
 	cursor: pointer;
 	margin-top: 20px;
@@ -130,7 +130,7 @@ html[dir='rtl'] .trTitle {
 }
 .removeIcon {
 	cursor: pointer;
-	color: red;
+	color: #522ed6;
 	border: none;
 	background-color: transparent;
 }

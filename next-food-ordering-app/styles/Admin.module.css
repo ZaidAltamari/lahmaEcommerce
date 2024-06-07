@@ -34,10 +34,10 @@
 	background-color: rgb(32, 82, 182);
 }
 .button:last-child {
-	background-color: crimson;
+	background-color: #522ed6;
 }
 .button:last-child:hover {
-	background-color: rgb(255, 0, 0);
+	background-color: #522ed6;
 }
 .nextStepButton {
 	background-color: rgb(66, 66, 66);

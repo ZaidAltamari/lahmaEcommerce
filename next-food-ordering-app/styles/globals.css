@@ -27,7 +27,7 @@ a {
 * {
 	box-sizing: border-box;
 	scrollbar-width: thin;
-	scrollbar-color: hsl(0, 100%, 56%) transparent;
+	scrollbar-color: #522ed686 transparent;
 }
 ::-webkit-scrollbar-track {
 	border-radius: 10px;
@@ -40,9 +40,9 @@ a {
 		linear,
 		left bottom,
 		left top,
-		color-stop(0.44, hsl(0, 100%, 56%)),
-		color-stop(0.72, hsl(0, 68%, 53%)),
-		color-stop(0.86, rgb(245, 30, 30))
+		color-stop(0.44, hsl(238, 100%, 56%)),
+		color-stop(0.72, hsl(237, 68%, 53%)),
+		color-stop(0.86, rgb(33, 30, 245))
 	);
 }
 html[dir='rtl'] .MuiButtonBase-root span {

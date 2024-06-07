@@ -78,7 +78,7 @@ const MenuList = ({ menuListItems }) => {
 							{t('Home & Garden')}
 						</div>
 					</li>
-					{renderSubMenu('Meals', [
+					{renderSubMenu('Kitchen', [
 						'Kitchen & Dining',
 						'Kitchen Tools & Utensils',
 					])}
@@ -110,7 +110,7 @@ const MenuList = ({ menuListItems }) => {
 							{t('Hardwares')}
 						</div>
 					</li>
-					{renderSubMenu('Lambs', [
+					{renderSubMenu('Office', [
 						'Tools',
 						'Apparel & Accessories',
 						'Office Supplies',
@@ -122,8 +122,8 @@ const MenuList = ({ menuListItems }) => {
 							{t('Audio')}
 						</div>
 					</li>
-					{renderSubMenu('Beef', ['Jewelry', 'Household Supplies'])}
-					{renderSubMenu('Other Meals', [
+					{renderSubMenu('Jewelry', ['Jewelry', 'Household Supplies'])}
+					{renderSubMenu('Other Categories', [
 						'Storage & Organization',
 						'Watches',
 						'Grinders',

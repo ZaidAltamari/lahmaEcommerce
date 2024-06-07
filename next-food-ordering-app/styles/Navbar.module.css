@@ -62,7 +62,7 @@ html[dir='rtl'] .item:nth-child(6) {
 	justify-content: flex-end;
 }
 .callButton {
-	background-color: #d63e2e;
+	background-color: #522ed6;
 	border-radius: 50%;
 	padding: 10px;
 	width: 50px;
@@ -112,7 +112,7 @@ html[dir='rtl'] .text:first-child {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	background-color: #ff6452;
+	background-color: #5e52ff;
 	padding: 3px;
 	display: flex;
 	align-items: center;
