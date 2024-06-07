@@ -14,7 +14,7 @@
 	-o-border-radius: 3px;
 }
 .mainAddButton:hover {
-	background-color: rgb(194, 29, 0);
+	background-color: #301ed1;
 }
 .container {
 	width: 100vw;
